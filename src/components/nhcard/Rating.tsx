@@ -264,9 +264,7 @@ function TableRow({ card, first }: { card: Card; first: boolean }) {
       </td>
       <td className="py-4 pr-4 align-top">
         <div className="flex items-start gap-3">
-          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.05] font-sans text-sm font-medium text-foreground">
-            {initials(card.name)}
-          </div>
+          <CardLogo name={card.name} logoUrl={card.logo_url} logoDomain={card.logo_domain} size={40} />
           <div className="min-w-0">
             <div className="flex items-center gap-2">
               <Link
