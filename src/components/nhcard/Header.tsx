@@ -14,7 +14,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 type LeafItem =
   | { label: string; kind: "hash"; hash: string }
@@ -82,10 +82,24 @@ function LeafLink({
 
 export function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const closeMobile = () => setMobileOpen(false);
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur">
+    <header
+      className={`sticky top-0 z-40 border-b transition-colors ${
+        scrolled
+          ? "border-white/10 bg-black/70 backdrop-blur-xl"
+          : "border-white/5 bg-black/40 backdrop-blur-md"
+      }`}
+    >
       <div className="mx-auto flex h-16 max-w-[1240px] items-center gap-6 px-4 sm:px-6 lg:px-8">
         <Link
           to="/"
@@ -94,13 +108,20 @@ export function SiteHeader() {
         >
           <span
             aria-hidden="true"
-            className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary font-serif text-lg font-bold text-primary-foreground"
+            className="flex h-8 w-8 items-center justify-center rounded-xl border border-white/10 bg-gradient-to-br from-primary/80 to-primary/40 font-sans text-lg font-medium text-primary-foreground shadow-[0_0_20px_rgba(60,120,170,0.45)]"
           >
             E
           </span>
-          <span className="font-serif text-2xl font-bold tracking-tight">
-            <span className="text-primary">Era</span>
-            <span className="text-accent">Pay</span>
+          <span
+            className="font-sans text-2xl font-medium tracking-tight text-foreground"
+            style={{ textShadow: "0 0 24px rgba(60,120,170,0.35)" }}
+          >
+            <span className="bg-gradient-to-r from-[oklch(0.78_0.09_240)] to-[oklch(0.62_0.09_245)] bg-clip-text text-transparent">
+              Era
+            </span>
+            <span className="bg-gradient-to-r from-accent to-[oklch(0.82_0.13_90)] bg-clip-text text-transparent">
+              Pay
+            </span>
           </span>
         </Link>
 
@@ -109,14 +130,24 @@ export function SiteHeader() {
             if (item.kind === "group") {
               return (
                 <DropdownMenu key={item.label}>
-                  <DropdownMenuTrigger className="inline-flex items-center gap-1 text-sm font-medium text-foreground/75 outline-none transition-colors hover:text-primary focus-visible:text-primary data-[state=open]:text-primary">
+                  <DropdownMenuTrigger className="inline-flex items-center gap-1 text-sm font-normal text-foreground/70 outline-none transition-colors hover:text-foreground focus-visible:text-foreground data-[state=open]:text-foreground">
                     {item.label}
                     <ChevronDown className="h-3.5 w-3.5" aria-hidden="true" />
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent align="start" className="min-w-56">
+                  <DropdownMenuContent
+                    align="start"
+                    className="min-w-56 border-white/10 bg-black/80 text-foreground backdrop-blur-xl"
+                  >
                     {item.items.map((leaf) => (
-                      <DropdownMenuItem key={leaf.label} asChild>
-                        <LeafLink item={leaf} className="w-full cursor-pointer text-sm" />
+                      <DropdownMenuItem
+                        key={leaf.label}
+                        asChild
+                        className="focus:bg-white/5 focus:text-foreground"
+                      >
+                        <LeafLink
+                          item={leaf}
+                          className="w-full cursor-pointer text-sm text-foreground/80 hover:text-foreground"
+                        />
                       </DropdownMenuItem>
                     ))}
                   </DropdownMenuContent>
@@ -127,7 +158,7 @@ export function SiteHeader() {
               <LeafLink
                 key={item.label}
                 item={item}
-                className="text-sm font-medium text-foreground/75 transition-colors hover:text-primary"
+                className="text-sm font-normal text-foreground/70 transition-colors hover:text-foreground"
               />
             );
           })}
@@ -140,27 +171,30 @@ export function SiteHeader() {
           <Link
             to="/"
             hash="rating"
-            className="hidden h-9 items-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 sm:inline-flex"
+            className="btn-pill hidden h-9 items-center bg-primary px-5 text-sm font-medium text-primary-foreground shadow-[0_0_20px_rgba(60,120,170,0.35)] transition-all hover:bg-primary/90 hover:shadow-[0_0_30px_rgba(60,120,170,0.55)] sm:inline-flex"
           >
             К рейтингу
           </Link>
 
           <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
             <SheetTrigger
-              className="inline-flex h-10 w-10 items-center justify-center rounded-md text-foreground/80 hover:bg-muted lg:hidden"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full text-foreground/80 hover:bg-white/5 hover:text-foreground lg:hidden"
               aria-label="Открыть меню"
             >
               <Menu className="h-5 w-5" aria-hidden="true" />
             </SheetTrigger>
-            <SheetContent side="right" className="w-[85vw] max-w-sm overflow-y-auto">
-              <SheetTitle className="font-serif text-lg">Меню</SheetTitle>
+            <SheetContent
+              side="right"
+              className="w-[85vw] max-w-sm overflow-y-auto border-white/10 bg-black/85 text-foreground backdrop-blur-xl"
+            >
+              <SheetTitle className="font-sans text-lg font-medium text-foreground">Меню</SheetTitle>
               <div className="mt-6 flex flex-col gap-1">
                 {nav.map((item) => {
                   if (item.kind === "group") {
                     return (
                       <Accordion key={item.label} type="single" collapsible>
-                        <AccordionItem value={item.label} className="border-b border-border">
-                          <AccordionTrigger className="py-3 text-sm font-medium">
+                        <AccordionItem value={item.label} className="border-b border-white/10">
+                          <AccordionTrigger className="py-3 text-sm font-medium text-foreground/85 hover:text-foreground">
                             {item.label}
                           </AccordionTrigger>
                           <AccordionContent>
@@ -170,7 +204,7 @@ export function SiteHeader() {
                                   key={leaf.label}
                                   item={leaf}
                                   onNavigate={closeMobile}
-                                  className="rounded-md px-2 py-2 text-sm text-foreground/80 hover:bg-muted hover:text-primary"
+                                  className="rounded-md px-2 py-2 text-sm text-foreground/70 hover:bg-white/5 hover:text-foreground"
                                 />
                               ))}
                             </div>
@@ -184,7 +218,7 @@ export function SiteHeader() {
                       key={item.label}
                       item={item}
                       onNavigate={closeMobile}
-                      className="border-b border-border py-3 text-sm font-medium text-foreground/80 hover:text-primary"
+                      className="border-b border-white/10 py-3 text-sm font-medium text-foreground/80 hover:text-foreground"
                     />
                   );
                 })}
@@ -192,7 +226,7 @@ export function SiteHeader() {
                   to="/"
                   hash="rating"
                   onClick={closeMobile}
-                  className="mt-4 inline-flex h-10 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground"
+                  className="btn-pill mt-4 inline-flex h-10 items-center justify-center bg-primary px-5 text-sm font-medium text-primary-foreground shadow-[0_0_20px_rgba(60,120,170,0.35)]"
                 >
                   К рейтингу
                 </Link>
