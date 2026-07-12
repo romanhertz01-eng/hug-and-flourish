@@ -91,7 +91,7 @@ export function Hero({ total }: { total: number }) {
 function PromoBanner() {
   return (
     <div
-      className="relative overflow-hidden rounded-[28px] border border-white/10 p-6 shadow-[0_30px_80px_rgba(0,0,0,0.5)] sm:p-8 lg:p-10"
+      className="relative mb-6 overflow-hidden rounded-2xl border border-white/10 px-5 py-4 shadow-[0_20px_50px_rgba(0,0,0,0.4)] sm:px-6 sm:py-5"
       style={{
         background:
           "linear-gradient(120deg, oklch(0.34 0.09 245) 0%, oklch(0.24 0.07 245) 45%, oklch(0.18 0.05 245) 100%)",
@@ -102,40 +102,78 @@ function PromoBanner() {
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(500px 260px at 90% 20%, rgba(194,166,51,0.20), transparent 60%), radial-gradient(600px 300px at 10% 100%, rgba(120,180,230,0.20), transparent 60%)",
+            "radial-gradient(400px 160px at 90% 20%, rgba(194,166,51,0.18), transparent 60%), radial-gradient(400px 180px at 10% 100%, rgba(120,180,230,0.18), transparent 60%)",
         }}
       />
-      <div className="relative grid items-center gap-8 lg:grid-cols-[1.25fr_1fr]">
-        <div>
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.08] px-3 py-1 text-[11px] font-medium uppercase tracking-wider text-foreground/85 backdrop-blur-md">
-            <span className="h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_10px_rgba(194,166,51,0.9)]" />
+      <div className="relative flex items-center justify-between gap-4">
+        <div className="min-w-0 flex-1">
+          <div className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/[0.08] px-2.5 py-0.5 text-[10px] font-medium uppercase tracking-wider text-foreground/85 backdrop-blur-md">
+            <span className="h-1 w-1 rounded-full bg-accent shadow-[0_0_8px_rgba(194,166,51,0.9)]" />
             Payqo рейтинг
           </div>
-          <h2 className="mt-4 font-sans text-2xl font-light leading-tight tracking-tight text-foreground sm:text-3xl lg:text-[36px]">
+          <h2 className="mt-1.5 font-sans text-base font-normal leading-snug tracking-tight text-foreground sm:text-lg">
             Ищете карту для зарубежных сервисов и оплаты за границей?
           </h2>
-          <p className="mt-3 max-w-[540px] text-sm leading-relaxed text-foreground/75 sm:text-base">
-            Рабочие карты для ChatGPT, Netflix, Steam и сотен сервисов —
-            подобраны и проверены редакцией.
+          <p className="mt-1 hidden text-xs leading-snug text-foreground/70 sm:block sm:text-sm">
+            Рабочие карты для ChatGPT, Netflix, Steam — проверены редакцией.
           </p>
-          <a
-            href="#rating"
-            className="btn-pill mt-6 inline-flex h-11 items-center bg-foreground px-6 text-sm font-medium text-background transition-all hover:bg-foreground/90"
-          >
-            К рейтингу карт →
-          </a>
         </div>
 
-        <div className="hidden lg:block">
+        <div className="hidden shrink-0 md:block">
           <PromoVisual />
         </div>
-        <div className="lg:hidden">
-          <PromoVisual compact />
-        </div>
+
+        <a
+          href="#rating"
+          className="btn-pill inline-flex h-9 shrink-0 items-center bg-foreground px-4 text-xs font-medium text-background transition-all hover:bg-foreground/90 sm:text-sm"
+        >
+          К рейтингу →
+        </a>
       </div>
     </div>
   );
 }
+
+function PromoVisual() {
+  return (
+    <div className="relative flex items-center gap-2">
+      <div
+        className="flex h-[70px] w-[110px] flex-col justify-between rounded-xl border border-white/15 p-2.5 shadow-[0_10px_30px_rgba(0,0,0,0.45)] backdrop-blur-xl"
+        style={{
+          background:
+            "linear-gradient(135deg, rgba(60,120,170,0.55), rgba(20,40,70,0.65))",
+        }}
+      >
+        <div className="flex items-center justify-between">
+          <span className="text-[8px] font-semibold uppercase tracking-wider text-foreground/85">Virtual</span>
+          <CreditCard className="h-3 w-3 text-foreground/85" />
+        </div>
+        <div className="font-mono text-[10px] tracking-widest text-foreground/90">•••• 8842</div>
+      </div>
+      <div className="flex flex-col gap-1.5">
+        <ServicePill>ChatGPT</ServicePill>
+        <ServicePill tone="accent">
+          <Globe2 className="h-2.5 w-2.5" /> 200+
+        </ServicePill>
+      </div>
+    </div>
+  );
+}
+
+function ServicePill({ children, tone }: { children: React.ReactNode; tone?: "accent" }) {
+  const cls =
+    tone === "accent"
+      ? "border-accent/40 bg-accent/15 text-accent"
+      : "border-white/15 bg-white/[0.08] text-foreground/90";
+  return (
+    <span
+      className={`inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[10px] font-medium backdrop-blur-md ${cls}`}
+    >
+      {children}
+    </span>
+  );
+}
+
 
 function PromoVisual({ compact = false }: { compact?: boolean }) {
   return (
