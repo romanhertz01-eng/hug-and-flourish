@@ -212,9 +212,9 @@ function Section({
   children: React.ReactNode;
 }) {
   return (
-    <section id={id} className="scroll-mt-28 py-12">
+    <section id={id} className="scroll-mt-[100px] pt-14 first:pt-0 sm:pt-16">
       <Eyebrow tone={eyebrowTone}>{eyebrow}</Eyebrow>
-      <h2 className="mt-2 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">{title}</h2>
+      <h2 className="mt-2 text-[28px] font-bold leading-[1.15] tracking-tight text-foreground sm:text-[34px]">{title}</h2>
       <div className="mt-6">{children}</div>
     </section>
   );
