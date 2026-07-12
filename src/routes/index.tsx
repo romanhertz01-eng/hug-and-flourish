@@ -45,10 +45,7 @@ export const Route = createFileRoute("/")({
     ],
   }),
   loader: async ({ context }) => {
-    await Promise.all([
-      context.queryClient.ensureQueryData(cardsQueryOptions),
-      context.queryClient.ensureQueryData(homeCountriesQueryOptions),
-    ]);
+    await context.queryClient.ensureQueryData(cardsQueryOptions);
     return {};
   },
   component: HomePage,
@@ -77,11 +74,6 @@ function HomeContent() {
     <>
       <Hero total={cards.length} />
       <RatingSection cards={cards} withControls />
-      <TasksSection />
-      <CountriesSection cards={cards} />
-      <TrustSection />
-      <CalculatorSection cards={cards} />
-      <MethodologySection />
       <FaqSection />
     </>
   );
