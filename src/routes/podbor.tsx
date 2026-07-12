@@ -5,7 +5,8 @@ import { ArrowLeft, ArrowRight, ShieldCheck, RefreshCcw, Apple, Smartphone, Zap 
 
 import { SiteHeader } from "@/components/nhcard/Header";
 import { SiteFooter } from "@/components/nhcard/Footer";
-import { cardsQueryOptions, initials, type Card } from "@/lib/cards";
+import { cardsQueryOptions, type Card } from "@/lib/cards";
+import { CardLogo } from "@/components/nhcard/CardLogo";
 import { noWrapMoney } from "@/lib/format";
 
 export const Route = createFileRoute("/podbor")({

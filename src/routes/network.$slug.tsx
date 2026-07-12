@@ -4,7 +4,8 @@ import { ChevronRight, ShieldCheck } from "lucide-react";
 
 import { SiteHeader } from "@/components/nhcard/Header";
 import { SiteFooter } from "@/components/nhcard/Footer";
-import { cardsQueryOptions, initials, type Card } from "@/lib/cards";
+import { cardsQueryOptions, type Card } from "@/lib/cards";
+import { CardLogo } from "@/components/nhcard/CardLogo";
 import { PUBLIC_ROBOTS } from "@/lib/config";
 
 type NetSlug = "visa" | "mastercard";

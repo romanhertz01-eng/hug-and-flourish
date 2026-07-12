@@ -5,7 +5,8 @@ import { ArrowLeft, ChevronRight } from "lucide-react";
 import { SiteHeader } from "@/components/nhcard/Header";
 import { SiteFooter } from "@/components/nhcard/Footer";
 import { ReviewsSection } from "@/components/nhcard/Reviews";
-import { cardBySlugQueryOptions, initials } from "@/lib/cards";
+import { cardBySlugQueryOptions } from "@/lib/cards";
+import { CardLogo } from "@/components/nhcard/CardLogo";
 import { supabase } from "@/integrations/supabase/client";
 import { PUBLIC_ROBOTS } from "@/lib/config";
 
