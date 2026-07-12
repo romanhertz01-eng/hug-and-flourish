@@ -110,7 +110,7 @@ export function ReviewsSection({ cardSlug, cardName }: { cardSlug: string; cardN
       </div>
 
       <p className="mt-2 text-xs text-muted-foreground">
-        Оценка пользователей — отдельно от редакционного балла EraPay.
+        Оценка пользователей — отдельно от редакционного балла Payqo.
       </p>
 
       <div className="mt-6 space-y-3">

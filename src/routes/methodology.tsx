@@ -4,17 +4,17 @@ import { InfoShell, H2, P, UL, Callout } from "@/components/nhcard/InfoShell";
 export const Route = createFileRoute("/methodology")({
   head: () => ({
     meta: [
-      { title: "Методология рейтинга — EraPay" },
+      { title: "Методология рейтинга — Payqo" },
       {
         name: "description",
         content:
-          "Как EraPay составляет рейтинг зарубежных виртуальных карт: пять критериев с весами, источники данных, разделение редакции и рекламы.",
+          "Как Payqo составляет рейтинг зарубежных виртуальных карт: пять критериев с весами, источники данных, разделение редакции и рекламы.",
       },
-      { property: "og:title", content: "Методология рейтинга — EraPay" },
+      { property: "og:title", content: "Методология рейтинга — Payqo" },
       {
         property: "og:description",
         content:
-          "5 критериев с весами, источники данных и частота обновления рейтинга EraPay.",
+          "5 критериев с весами, источники данных и частота обновления рейтинга Payqo.",
       },
       { property: "og:type", content: "article" },
       { name: "twitter:card", content: "summary" },

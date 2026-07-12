@@ -14,7 +14,7 @@ import { Loader2, Pencil, Plus, Trash2, X, Eye, EyeOff } from "lucide-react";
 export const Route = createFileRoute("/admin/blog")({
   head: () => ({
     meta: [
-      { title: "Блог — EraPay Admin" },
+      { title: "Блог — Payqo Admin" },
       { name: "robots", content: "noindex, nofollow" },
     ],
   }),

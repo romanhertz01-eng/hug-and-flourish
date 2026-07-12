@@ -4,16 +4,16 @@ import { InfoShell, H2, P, UL, Callout } from "@/components/nhcard/InfoShell";
 export const Route = createFileRoute("/legal/privacy")({
   head: () => ({
     meta: [
-      { title: "Политика конфиденциальности — EraPay" },
+      { title: "Политика конфиденциальности — Payqo" },
       {
         name: "description",
         content:
-          "Какие данные собирает сайт EraPay: отзывы, обратная связь, обезличенная аналитика и cookie.",
+          "Какие данные собирает сайт Payqo: отзывы, обратная связь, обезличенная аналитика и cookie.",
       },
-      { property: "og:title", content: "Политика конфиденциальности — EraPay" },
+      { property: "og:title", content: "Политика конфиденциальности — Payqo" },
       {
         property: "og:description",
-        content: "Какие данные собирает EraPay и как они используются.",
+        content: "Какие данные собирает Payqo и как они используются.",
       },
       { property: "og:type", content: "article" },
       { name: "twitter:card", content: "summary" },

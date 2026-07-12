@@ -80,7 +80,7 @@ export function SiteFooter() {
       <div className="mx-auto max-w-[1240px] px-4 py-14 sm:px-6 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-[1.5fr_repeat(4,1fr)]">
           <div>
-            <Link to="/" className="font-serif text-2xl font-bold" aria-label="EraPay — на главную">
+            <Link to="/" className="font-serif text-2xl font-bold" aria-label="Payqo — на главную">
               <span className="text-primary">Era</span>
               <span className="text-accent">Pay</span>
             </Link>
@@ -103,7 +103,7 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-12 border-t border-border pt-6 text-xs leading-relaxed text-muted-foreground">
-          EraPay — независимый информационный проект. Мы не являемся эмитентом карт и не оказываем услуг по их
+          Payqo — независимый информационный проект. Мы не являемся эмитентом карт и не оказываем услуг по их
           выпуску. Рейтинг носит информационный характер. Всегда проверяйте условия у эмитента. Некоторые ссылки —
           партнёрские.
         </div>

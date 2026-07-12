@@ -61,9 +61,9 @@ export const Route = createFileRoute("/network/$slug")({
   head: ({ loaderData }) => {
     const data = loaderData as { slug: NetSlug; name: string } | undefined;
     if (!data) return { meta: [{ title: "Платёжная система" }] };
-    const url = `https://erapay.ru/network/${data.slug}`;
-    const title = `Виртуальная карта ${data.name} для россиян в 2026 году · EraPay`;
-    const description = `Как оформить и использовать виртуальную карту ${data.name} из России: топ карт, тарифы, где принимают. Проверено редакцией EraPay.`;
+    const url = `https://payqo.ru/network/${data.slug}`;
+    const title = `Виртуальная карта ${data.name} для россиян в 2026 году · Payqo`;
+    const description = `Как оформить и использовать виртуальную карту ${data.name} из России: топ карт, тарифы, где принимают. Проверено редакцией Payqo.`;
     return {
       meta: [
         { title },
@@ -110,13 +110,13 @@ function NetworkPage() {
     .filter((c) => net.regex.test(c.payment_system ?? ""))
     .slice(0, 5);
 
-  const url = `https://erapay.ru/network/${slug}`;
+  const url = `https://payqo.ru/network/${slug}`;
   const breadcrumbLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Главная", item: "https://erapay.ru/" },
-      { "@type": "ListItem", position: 2, name: "Платёжные системы", item: "https://erapay.ru/network" },
+      { "@type": "ListItem", position: 1, name: "Главная", item: "https://payqo.ru/" },
+      { "@type": "ListItem", position: 2, name: "Платёжные системы", item: "https://payqo.ru/network" },
       { "@type": "ListItem", position: 3, name: net.name, item: url },
     ],
   };

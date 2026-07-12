@@ -23,29 +23,29 @@ const TOPIC: TopicConfig = {
   key: "ai",
   sectionLabel: "Нейросети",
   indexPath: "/ai",
-  eyebrow: "Нейросети · Экспертиза EraPay",
+  eyebrow: "Нейросети · Экспертиза Payqo",
   faq: [],
 };
 
 export const Route = createFileRoute("/ai/")({
   head: () => ({
     meta: [
-      { title: "Нейросети — генерация текста, изображений, видео · EraPay" },
+      { title: "Нейросети — генерация текста, изображений, видео · Payqo" },
       {
         name: "description",
         content:
           "Раздел о нейросетях: обзоры ChatGPT, Claude, Midjourney, Sora, Suno и других моделей. Как выбрать под задачу и оплатить из России.",
       },
-      { property: "og:title", content: "Нейросети — раздел EraPay" },
+      { property: "og:title", content: "Нейросети — раздел Payqo" },
       {
         property: "og:description",
         content: "Обзоры лучших нейросетей 2026 года: чат-боты, генерация изображений, видео, музыки, текста.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://erapay.ru/ai" },
+      { property: "og:url", content: "https://payqo.ru/ai" },
       { name: "robots", content: PUBLIC_ROBOTS },
     ],
-    links: [{ rel: "canonical", href: "https://erapay.ru/ai" }],
+    links: [{ rel: "canonical", href: "https://payqo.ru/ai" }],
   }),
   loader: ({ context }) => context.queryClient.ensureQueryData(listQO),
   component: AiIndex,

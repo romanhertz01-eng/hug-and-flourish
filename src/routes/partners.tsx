@@ -4,16 +4,16 @@ import { InfoShell, H2, P, UL, Callout } from "@/components/nhcard/InfoShell";
 export const Route = createFileRoute("/partners")({
   head: () => ({
     meta: [
-      { title: "Партнёрам и рекламодателям — EraPay" },
+      { title: "Партнёрам и рекламодателям — Payqo" },
       {
         name: "description",
         content:
-          "Как эмитенту карты попасть в мониторинг EraPay, варианты сотрудничества и почему реклама не влияет на редакционную оценку.",
+          "Как эмитенту карты попасть в мониторинг Payqo, варианты сотрудничества и почему реклама не влияет на редакционную оценку.",
       },
-      { property: "og:title", content: "Партнёрам и рекламодателям — EraPay" },
+      { property: "og:title", content: "Партнёрам и рекламодателям — Payqo" },
       {
         property: "og:description",
-        content: "Виды сотрудничества, маркировка и контакты редакции EraPay.",
+        content: "Виды сотрудничества, маркировка и контакты редакции Payqo.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
@@ -27,7 +27,7 @@ function PartnersPage() {
     <InfoShell
       eyebrow="Партнёрам"
       title="Партнёрам и рекламодателям"
-      lead="EraPay открыт для сотрудничества с эмитентами карт и смежных сервисов. Реклама у нас возможна, но редакционная оценка — нет."
+      lead="Payqo открыт для сотрудничества с эмитентами карт и смежных сервисов. Реклама у нас возможна, но редакционная оценка — нет."
     >
       <H2>Как попасть в мониторинг</H2>
       <P>

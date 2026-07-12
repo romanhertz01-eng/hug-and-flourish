@@ -71,15 +71,15 @@ export const Route = createFileRoute("/blog/$slug")({
     const p = loaderData as { post?: BlogPost } | undefined;
     if (!p?.post) {
       return {
-        meta: [{ title: "Статья не найдена · EraPay" }, { name: "robots", content: "noindex" }],
+        meta: [{ title: "Статья не найдена · Payqo" }, { name: "robots", content: "noindex" }],
       };
     }
     const post = p.post;
-    const url = `https://erapay.ru/blog/${params.slug}`;
+    const url = `https://payqo.ru/blog/${params.slug}`;
     const dateModified = post.updated_at && post.updated_at !== post.published_at ? post.updated_at : post.published_at;
     return {
       meta: [
-        { title: post.meta_title || `${post.title} · Блог EraPay` },
+        { title: post.meta_title || `${post.title} · Блог Payqo` },
         { name: "description", content: post.meta_description || post.excerpt },
         { name: "keywords", content: post.keyword },
         { property: "og:title", content: post.meta_title || post.title },
@@ -102,8 +102,8 @@ export const Route = createFileRoute("/blog/$slug")({
             dateModified,
             publisher: {
               "@type": "Organization",
-              name: "EraPay",
-              logo: { "@type": "ImageObject", url: "https://erapay.ru/apple-touch-icon.png" },
+              name: "Payqo",
+              logo: { "@type": "ImageObject", url: "https://payqo.ru/apple-touch-icon.png" },
             },
             mainEntityOfPage: url,
           }),
@@ -114,8 +114,8 @@ export const Route = createFileRoute("/blog/$slug")({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Главная", item: "https://erapay.ru/" },
-              { "@type": "ListItem", position: 2, name: "Блог", item: "https://erapay.ru/blog" },
+              { "@type": "ListItem", position: 1, name: "Главная", item: "https://payqo.ru/" },
+              { "@type": "ListItem", position: 2, name: "Блог", item: "https://payqo.ru/blog" },
               { "@type": "ListItem", position: 3, name: post.title, item: url },
             ],
           }),
@@ -136,7 +136,7 @@ export const Route = createFileRoute("/blog/$slug")({
       <div className="mx-auto max-w-2xl px-6 py-24 text-center">
         <h1 className="font-serif text-3xl font-bold text-primary">Статья не найдена</h1>
         <p className="mt-3 text-muted-foreground">
-          Такой статьи в блоге EraPay пока нет.
+          Такой статьи в блоге Payqo пока нет.
         </p>
         <Link
           to="/blog"
@@ -217,7 +217,7 @@ function BlogArticlePage() {
                 Выбрать карту
               </div>
               <h3 className="mt-1 font-serif text-xl font-bold text-primary">
-                Рейтинг зарубежных виртуальных карт EraPay
+                Рейтинг зарубежных виртуальных карт Payqo
               </h3>
               <p className="mt-2 text-sm text-muted-foreground">
                 Сравните карты по стоимости, лимитам и приёму — и выберите под свой сценарий.

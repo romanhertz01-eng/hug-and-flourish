@@ -77,7 +77,7 @@ function makeTopic(faqs: { q: string; a: string }[]): TopicConfig {
     key: "crypto",
     sectionLabel: "Крипта",
     indexPath: "/crypto",
-    eyebrow: "Криптовалюта · Экспертиза EraPay",
+    eyebrow: "Криптовалюта · Экспертиза Payqo",
     faq: faqs,
   };
 }
@@ -86,14 +86,14 @@ export const Route = createFileRoute("/crypto/$slug")({
   head: ({ loaderData, params }) => {
     const l = loaderData as { page?: Row } | undefined;
     if (!l?.page) {
-      return { meta: [{ title: "Страница не найдена · EraPay" }, { name: "robots", content: "noindex" }] };
+      return { meta: [{ title: "Страница не найдена · Payqo" }, { name: "robots", content: "noindex" }] };
     }
     const p = l.page;
-    const url = `https://erapay.ru/crypto/${params.slug}`;
+    const url = `https://payqo.ru/crypto/${params.slug}`;
     const faqs = TOPIC_FAQS[params.slug] ?? [];
     return {
       meta: [
-        { title: p.meta_title || `${p.title} · EraPay` },
+        { title: p.meta_title || `${p.title} · Payqo` },
         { name: "description", content: p.meta_description || p.intro_text },
         { name: "keywords", content: p.keyword },
         { property: "og:title", content: p.meta_title || p.title },
@@ -112,11 +112,11 @@ export const Route = createFileRoute("/crypto/$slug")({
             headline: p.title,
             description: p.meta_description || p.intro_text,
             mainEntityOfPage: url,
-            author: { "@type": "Organization", name: "EraPay" },
+            author: { "@type": "Organization", name: "Payqo" },
             publisher: {
               "@type": "Organization",
-              name: "EraPay",
-              logo: { "@type": "ImageObject", url: "https://erapay.ru/apple-touch-icon.png" },
+              name: "Payqo",
+              logo: { "@type": "ImageObject", url: "https://payqo.ru/apple-touch-icon.png" },
             },
           }),
         },
@@ -126,8 +126,8 @@ export const Route = createFileRoute("/crypto/$slug")({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Главная", item: "https://erapay.ru/" },
-              { "@type": "ListItem", position: 2, name: "Крипта", item: "https://erapay.ru/crypto" },
+              { "@type": "ListItem", position: 1, name: "Главная", item: "https://payqo.ru/" },
+              { "@type": "ListItem", position: 2, name: "Крипта", item: "https://payqo.ru/crypto" },
               { "@type": "ListItem", position: 3, name: p.title, item: url },
             ],
           }),

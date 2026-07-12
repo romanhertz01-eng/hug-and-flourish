@@ -8,7 +8,7 @@ import { RatingSection } from "@/components/nhcard/Rating";
 import { cardsQueryOptions } from "@/lib/cards";
 import { PUBLIC_ROBOTS } from "@/lib/config";
 
-const URL = "https://erapay.ru/foreign-virtual-cards";
+const URL = "https://payqo.ru/foreign-virtual-cards";
 const TITLE = "Зарубежная виртуальная карта: рейтинг для россиян в 2026";
 const DESC =
   "Как выбрать зарубежную виртуальную карту в 2026 году: рейтинг проверенных карт, стоимость, пополнение из РФ, поддержка сервисов и оплата за границей.";
@@ -79,7 +79,7 @@ export const Route = createFileRoute("/foreign-virtual-cards")({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Главная", item: "https://erapay.ru/" },
+            { "@type": "ListItem", position: 1, name: "Главная", item: "https://payqo.ru/" },
             { "@type": "ListItem", position: 2, name: "Зарубежные виртуальные карты", item: URL },
           ],
         }),
@@ -130,7 +130,7 @@ function ForeignVirtualCardsPage() {
               Российские Visa и Mastercard перестали работать за пределами РФ ещё в 2022 году, а
               внутренние платёжные системы не принимают в интернет-магазинах, стриминговых сервисах,
               рекламных кабинетах и большинстве отелей. Зарубежная виртуальная карта — легальный
-              инструмент для оплаты подписок, покупок и поездок. Ниже — рейтинг карт EraPay:
+              инструмент для оплаты подписок, покупок и поездок. Ниже — рейтинг карт Payqo:
               сравнение по цене владения, стабильности и поддержке сервисов.
             </p>
           </div>

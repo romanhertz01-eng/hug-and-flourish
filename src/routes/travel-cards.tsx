@@ -9,7 +9,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { cardsQueryOptions } from "@/lib/cards";
 import { PUBLIC_ROBOTS } from "@/lib/config";
 
-const URL = "https://erapay.ru/travel-cards";
+const URL = "https://payqo.ru/travel-cards";
 const TITLE = "Карта для путешествий за границей: рейтинг 2026";
 const DESC =
   "Иностранная карта для путешествий в 2026 году: оплата Booking, Airbnb, Agoda, отелей и предавторизаций за границей. Рейтинг тревел-карт для россиян.";
@@ -89,7 +89,7 @@ export const Route = createFileRoute("/travel-cards")({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Главная", item: "https://erapay.ru/" },
+            { "@type": "ListItem", position: 1, name: "Главная", item: "https://payqo.ru/" },
             { "@type": "ListItem", position: 2, name: "Карты для путешествий", item: URL },
           ],
         }),
@@ -141,7 +141,7 @@ function TravelCardsPage() {
             <p className="mt-5 max-w-3xl text-base leading-relaxed text-muted-foreground sm:text-lg">
               Тревел-карта — это не просто «Visa за рубеж». Она должна выдержать hold в отеле на две недели,
               пройти в прокате авто с депозитом 300 евро, работать в Apple Pay в метро Стамбула и оплатить бронь
-              на Booking в момент, когда бронирование ещё не подтверждено. Ниже — карты EraPay, которыми
+              на Booking в момент, когда бронирование ещё не подтверждено. Ниже — карты Payqo, которыми
               пользователи закрывают эти сценарии в поездках 2026 года.
             </p>
           </div>

@@ -37,22 +37,22 @@ function formatDate(iso: string): string {
 export const Route = createFileRoute("/blog/")({
   head: () => ({
     meta: [
-      { title: "Блог EraPay — статьи о зарубежных виртуальных картах" },
+      { title: "Блог Payqo — статьи о зарубежных виртуальных картах" },
       {
         name: "description",
         content:
-          "Экспертные статьи EraPay о зарубежных виртуальных картах: BIN, KYC, 3-D Secure, пополнение через СБП, налоги, безопасность и многое другое.",
+          "Экспертные статьи Payqo о зарубежных виртуальных картах: BIN, KYC, 3-D Secure, пополнение через СБП, налоги, безопасность и многое другое.",
       },
-      { property: "og:title", content: "Блог EraPay — статьи о зарубежных виртуальных картах" },
+      { property: "og:title", content: "Блог Payqo — статьи о зарубежных виртуальных картах" },
       {
         property: "og:description",
         content:
           "Экспертные статьи о зарубежных виртуальных картах: как выбрать, пополнить и безопасно использовать.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://erapay.ru/blog" },
+      { property: "og:url", content: "https://payqo.ru/blog" },
     ],
-    links: [{ rel: "canonical", href: "https://erapay.ru/blog" }],
+    links: [{ rel: "canonical", href: "https://payqo.ru/blog" }],
   }),
   loader: ({ context }) => context.queryClient.ensureQueryData(blogListQueryOptions),
   component: BlogListPage,
@@ -74,10 +74,10 @@ function BlogListPage() {
         <section className="border-b border-border bg-surface">
           <div className="mx-auto max-w-[1040px] px-4 py-14 sm:px-6 lg:px-8">
             <div className="text-xs font-semibold uppercase tracking-wider text-accent">
-              Блог · Экспертиза EraPay
+              Блог · Экспертиза Payqo
             </div>
             <h1 className="mt-2 font-serif text-4xl font-bold tracking-tight text-primary sm:text-5xl">
-              Блог EraPay
+              Блог Payqo
             </h1>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
               Как устроены зарубежные виртуальные карты, как их выбирать и безопасно

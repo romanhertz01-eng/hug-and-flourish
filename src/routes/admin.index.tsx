@@ -8,7 +8,7 @@ import { CreditCard, FileText, Globe, BookOpen, MessageSquare } from "lucide-rea
 export const Route = createFileRoute("/admin/")({
   head: () => ({
     meta: [
-      { title: "Админка — EraPay" },
+      { title: "Админка — Payqo" },
       { name: "robots", content: "noindex, nofollow" },
     ],
   }),

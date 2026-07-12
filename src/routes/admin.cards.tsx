@@ -8,7 +8,7 @@ import { Loader2, Plus, Pencil, Trash2, X } from "lucide-react";
 export const Route = createFileRoute("/admin/cards")({
   head: () => ({
     meta: [
-      { title: "Карты — EraPay Admin" },
+      { title: "Карты — Payqo Admin" },
       { name: "robots", content: "noindex, nofollow" },
     ],
   }),

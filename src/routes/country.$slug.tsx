@@ -60,19 +60,19 @@ function introFor(page: CountryPage): string {
   const { name_ru, currency, region } = page;
   switch (region) {
     case "СНГ":
-      return `В ${name_ru} у россиян работают карты «Мир» — в супермаркетах, отелях и банкоматах. Но не везде: онлайн-сервисы, авиабилеты и часть ресторанов принимают только Visa и Mastercard. Ниже — карты из рейтинга EraPay, которыми пользователи закрывают все сценарии оплаты в ${name_ru} в валюте ${currency}.`;
+      return `В ${name_ru} у россиян работают карты «Мир» — в супермаркетах, отелях и банкоматах. Но не везде: онлайн-сервисы, авиабилеты и часть ресторанов принимают только Visa и Mastercard. Ниже — карты из рейтинга Payqo, которыми пользователи закрывают все сценарии оплаты в ${name_ru} в валюте ${currency}.`;
     case "Европа":
-      return `В ${name_ru} российские карты не принимают ни в одной точке — ни офлайн, ни онлайн. Единственный рабочий вариант — зарубежная виртуальная карта Visa или Mastercard с BIN нейтральной страны. Валюта оплаты — ${currency}. Ниже — карты EraPay, которые пользователи берут в поездку в ${name_ru}: без блокировок в отелях, ресторанах и Booking.`;
+      return `В ${name_ru} российские карты не принимают ни в одной точке — ни офлайн, ни онлайн. Единственный рабочий вариант — зарубежная виртуальная карта Visa или Mastercard с BIN нейтральной страны. Валюта оплаты — ${currency}. Ниже — карты Payqo, которые пользователи берут в поездку в ${name_ru}: без блокировок в отелях, ресторанах и Booking.`;
     case "Азия":
-      return `В ${name_ru} российские карты не принимают. Visa и Mastercard иностранных банков работают в отелях, ресторанах и онлайне, во многих местах также принимают UnionPay. Локальная валюта — ${currency}, наличные пригодятся на рынках и в транспорте. Ниже — карты, которыми пользователи EraPay оплачивают поездки в ${name_ru}.`;
+      return `В ${name_ru} российские карты не принимают. Visa и Mastercard иностранных банков работают в отелях, ресторанах и онлайне, во многих местах также принимают UnionPay. Локальная валюта — ${currency}, наличные пригодятся на рынках и в транспорте. Ниже — карты, которыми пользователи Payqo оплачивают поездки в ${name_ru}.`;
     case "Ближний Восток":
-      return `В ${name_ru} российские карты не работают. Visa и Mastercard иностранных банков принимают в отелях, ресторанах и торговых центрах без ограничений, валюта расчётов — ${currency}. В такси и на рынках лучше иметь немного наличных. Ниже — карты EraPay, которые уверенно проходят в ${name_ru}.`;
+      return `В ${name_ru} российские карты не работают. Visa и Mastercard иностранных банков принимают в отелях, ресторанах и торговых центрах без ограничений, валюта расчётов — ${currency}. В такси и на рынках лучше иметь немного наличных. Ниже — карты Payqo, которые уверенно проходят в ${name_ru}.`;
     case "Африка":
-      return `В ${name_ru} российские карты не принимают, а инфраструктура терминалов есть только в туристических зонах и крупных отелях. Visa и Mastercard иностранных банков работают, валюта расчётов — ${currency}. Значительную часть расходов удобнее закрывать наличными. Ниже — карты EraPay для поездки в ${name_ru}.`;
+      return `В ${name_ru} российские карты не принимают, а инфраструктура терминалов есть только в туристических зонах и крупных отелях. Visa и Mastercard иностранных банков работают, валюта расчётов — ${currency}. Значительную часть расходов удобнее закрывать наличными. Ниже — карты Payqo для поездки в ${name_ru}.`;
     case "Америка":
-      return `В ${name_ru} российские карты полностью отключены от международных платёжных систем. Единственный вариант — зарубежная виртуальная Visa или Mastercard. Валюта расчётов — ${currency}. Ниже — карты EraPay, которые пользователи берут в ${name_ru}: с высокими лимитами и поддержкой предавторизации в отелях и прокате авто.`;
+      return `В ${name_ru} российские карты полностью отключены от международных платёжных систем. Единственный вариант — зарубежная виртуальная Visa или Mastercard. Валюта расчётов — ${currency}. Ниже — карты Payqo, которые пользователи берут в ${name_ru}: с высокими лимитами и поддержкой предавторизации в отелях и прокате авто.`;
     default:
-      return `Оплата в ${name_ru} российскими картами невозможна. Ниже — рейтинг зарубежных виртуальных карт EraPay для платежей в ${currency}.`;
+      return `Оплата в ${name_ru} российскими картами невозможна. Ниже — рейтинг зарубежных виртуальных карт Payqo для платежей в ${currency}.`;
   }
 }
 
@@ -99,7 +99,7 @@ function faqFor(page: CountryPage): { q: string; a: string }[] {
     },
     {
       q: `Есть ли комиссия за конвертацию в ${currency}?`,
-      a: `Комиссия зависит от эмитента карты. У карт из верхней части рейтинга EraPay курс близок к межбанку, скрытых наценок нет — точные тарифы указаны в карточке каждой карты.`,
+      a: `Комиссия зависит от эмитента карты. У карт из верхней части рейтинга Payqo курс близок к межбанку, скрытых наценок нет — точные тарифы указаны в карточке каждой карты.`,
     },
   ];
 }
@@ -123,10 +123,10 @@ export const Route = createFileRoute("/country/$slug")({
   head: ({ loaderData }) => {
     const p = loaderData as { page?: CountryPage } | undefined;
     if (!p?.page) {
-      return { meta: [{ title: "Страна не найдена · EraPay" }, { name: "robots", content: "noindex" }] };
+      return { meta: [{ title: "Страна не найдена · Payqo" }, { name: "robots", content: "noindex" }] };
     }
     const page = p.page;
-    const url = `https://erapay.ru/country/${page.slug}`;
+    const url = `https://payqo.ru/country/${page.slug}`;
     return {
       meta: [
         { title: page.meta_title },
@@ -146,8 +146,8 @@ export const Route = createFileRoute("/country/$slug")({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Главная", item: "https://erapay.ru/" },
-              { "@type": "ListItem", position: 2, name: "Карты по странам", item: "https://erapay.ru/#countries" },
+              { "@type": "ListItem", position: 1, name: "Главная", item: "https://payqo.ru/" },
+              { "@type": "ListItem", position: 2, name: "Карты по странам", item: "https://payqo.ru/#countries" },
               { "@type": "ListItem", position: 3, name: page.name_ru, item: url },
             ],
           }),
@@ -182,7 +182,7 @@ export const Route = createFileRoute("/country/$slug")({
       <SiteHeader />
       <div className="mx-auto max-w-2xl px-6 py-24 text-center">
         <h1 className="font-serif text-3xl font-bold text-primary">Страна не найдена</h1>
-        <p className="mt-3 text-muted-foreground">Такой страны пока нет в базе EraPay.</p>
+        <p className="mt-3 text-muted-foreground">Такой страны пока нет в базе Payqo.</p>
         <Link to="/" className="mt-6 inline-flex h-10 items-center rounded-md bg-primary px-4 text-sm font-semibold text-primary-foreground">
           К рейтингу
         </Link>

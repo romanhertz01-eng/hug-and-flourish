@@ -5,7 +5,7 @@ import { TopicAdminPanel } from "@/components/admin/TopicAdminPanel";
 export const Route = createFileRoute("/admin/ai")({
   head: () => ({
     meta: [
-      { title: "Нейросети — EraPay Admin" },
+      { title: "Нейросети — Payqo Admin" },
       { name: "robots", content: "noindex, nofollow" },
     ],
   }),

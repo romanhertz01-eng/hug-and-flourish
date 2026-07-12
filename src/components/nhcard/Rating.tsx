@@ -82,8 +82,8 @@ export function RatingSection({ cards, withControls = false }: { cards: Card[]; 
         sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
       });
     }
-    window.addEventListener("erapay:apply-filter", onApply as EventListener);
-    return () => window.removeEventListener("erapay:apply-filter", onApply as EventListener);
+    window.addEventListener("payqo:apply-filter", onApply as EventListener);
+    return () => window.removeEventListener("payqo:apply-filter", onApply as EventListener);
   }, [withControls]);
 
   const filtered = useMemo(() => {

@@ -9,7 +9,7 @@ import { cardsQueryOptions } from "@/lib/cards";
 import { PUBLIC_ROBOTS } from "@/lib/config";
 import { publishedServicesQueryOptions } from "@/lib/service-links";
 
-const URL_ = "https://erapay.ru/ads-cards";
+const URL_ = "https://payqo.ru/ads-cards";
 const TITLE = "Карты для оплаты рекламы: Google Ads и TikTok в 2026 году";
 const DESC =
   "Иностранные карты для пополнения рекламных кабинетов Google Ads, TikTok Ads и Facebook Ads: высокие лимиты, стабильные автосписания.";
@@ -61,7 +61,7 @@ export const Route = createFileRoute("/ads-cards")({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Главная", item: "https://erapay.ru/" },
+            { "@type": "ListItem", position: 1, name: "Главная", item: "https://payqo.ru/" },
             { "@type": "ListItem", position: 2, name: "Карты для рекламы", item: URL_ },
           ],
         }),

@@ -3,7 +3,7 @@ import type {} from "@tanstack/react-start";
 import { createClient } from "@supabase/supabase-js";
 import type { Database } from "@/integrations/supabase/types";
 
-const BASE_URL = "https://erapay.ru";
+const BASE_URL = "https://payqo.ru";
 const STATIC_DATE = "2026-07-01";
 const clip = (d: string | null | undefined) => (d ? d.slice(0, 10) : STATIC_DATE);
 

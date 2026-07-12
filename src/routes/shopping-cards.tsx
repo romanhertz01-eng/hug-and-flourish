@@ -9,7 +9,7 @@ import { cardsQueryOptions } from "@/lib/cards";
 import { PUBLIC_ROBOTS } from "@/lib/config";
 import { publishedServicesQueryOptions } from "@/lib/service-links";
 
-const URL_ = "https://erapay.ru/shopping-cards";
+const URL_ = "https://payqo.ru/shopping-cards";
 const TITLE = "Карты для покупок в иностранных магазинах в 2026 году";
 const DESC =
   "Иностранные виртуальные карты для покупок в Amazon, eBay, AliExpress, iHerb и Etsy: billing-адрес, AVS, доставка через посредников.";
@@ -63,7 +63,7 @@ export const Route = createFileRoute("/shopping-cards")({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Главная", item: "https://erapay.ru/" },
+            { "@type": "ListItem", position: 1, name: "Главная", item: "https://payqo.ru/" },
             { "@type": "ListItem", position: 2, name: "Карты для покупок", item: URL_ },
           ],
         }),

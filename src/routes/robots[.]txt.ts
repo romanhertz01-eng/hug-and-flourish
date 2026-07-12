@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 import { DEMO_MODE } from "@/lib/config";
 
-const BASE_URL = "https://erapay.ru";
+const BASE_URL = "https://payqo.ru";
 
 export const Route = createFileRoute("/robots.txt")({
   server: {

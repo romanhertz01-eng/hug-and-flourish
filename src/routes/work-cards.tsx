@@ -9,7 +9,7 @@ import { cardsQueryOptions } from "@/lib/cards";
 import { PUBLIC_ROBOTS } from "@/lib/config";
 import { publishedServicesQueryOptions } from "@/lib/service-links";
 
-const URL_ = "https://erapay.ru/work-cards";
+const URL_ = "https://payqo.ru/work-cards";
 const TITLE = "Карты для оплаты SaaS и рабочих сервисов в 2026 году";
 const DESC =
   "Иностранные карты для оплаты Adobe, Figma, Notion, GitHub, JetBrains и других SaaS: годовые подписки, VAT, бизнес-аккаунты.";
@@ -60,7 +60,7 @@ export const Route = createFileRoute("/work-cards")({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Главная", item: "https://erapay.ru/" },
+            { "@type": "ListItem", position: 1, name: "Главная", item: "https://payqo.ru/" },
             { "@type": "ListItem", position: 2, name: "Карты для SaaS", item: URL_ },
           ],
         }),

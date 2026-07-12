@@ -64,7 +64,7 @@ function pick<T>(arr: T[], slug: string): T {
 
 const INTRO_VARIANTS: Record<string, ((n: string) => string)[]> = {
   ai: [
-    (n) => `Оплатить ${n} российской картой невозможно — сервис не принимает карты РФ и отклоняет платежи по BIN 220. Ниже — зарубежные виртуальные карты в USD, которыми пользователи EraPay успешно оплачивают подписку ${n} за один вечер.`,
+    (n) => `Оплатить ${n} российской картой невозможно — сервис не принимает карты РФ и отклоняет платежи по BIN 220. Ниже — зарубежные виртуальные карты в USD, которыми пользователи Payqo успешно оплачивают подписку ${n} за один вечер.`,
     (n) => `Биллинг ${n} требует карту в долларах и часто перепроверяет регион аккаунта. Мы собрали виртуальные карты, которые проходят у ${n} без запросов документов и без переоформления региона.`,
     (n) => `Чтобы оплатить ${n} из России, нужна карта в USD и аккаунт с непророссийским регионом. В подборке — карты, которые редакция протестировала именно на ${n}: комиссии, лимиты и скорость выпуска сверены.`,
   ],
@@ -247,7 +247,7 @@ function faqFor(page: ServicePage): { q: string; a: string }[] {
     },
     {
       q: `Какая карта лучше подходит для ${n}?`,
-      a: `Лучше всего работают карты с BIN нейтральных стран (Армения, Казахстан, Кипр, Гонконг), быстрым выпуском и низкой комиссией на пополнение. В верхней части рейтинга — карты, которые редакция EraPay протестировала на ${n} лично.`,
+      a: `Лучше всего работают карты с BIN нейтральных стран (Армения, Казахстан, Кипр, Гонконг), быстрым выпуском и низкой комиссией на пополнение. В верхней части рейтинга — карты, которые редакция Payqo протестировала на ${n} лично.`,
     },
     {
       q: `Что делать, если платёж в ${n} отклонён?`,
@@ -272,10 +272,10 @@ export const Route = createFileRoute("/service/$slug")({
   head: ({ loaderData }) => {
     const p = loaderData as { page?: ServicePage } | undefined;
     if (!p?.page) {
-      return { meta: [{ title: "Сервис не найден · EraPay" }, { name: "robots", content: "noindex" }] };
+      return { meta: [{ title: "Сервис не найден · Payqo" }, { name: "robots", content: "noindex" }] };
     }
     const page = p.page;
-    const url = `https://erapay.ru/service/${page.slug}`;
+    const url = `https://payqo.ru/service/${page.slug}`;
     return {
       meta: [
         { title: page.meta_title },
@@ -295,8 +295,8 @@ export const Route = createFileRoute("/service/$slug")({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Главная", item: "https://erapay.ru/" },
-              { "@type": "ListItem", position: 2, name: "Карты для сервисов", item: "https://erapay.ru/service" },
+              { "@type": "ListItem", position: 1, name: "Главная", item: "https://payqo.ru/" },
+              { "@type": "ListItem", position: 2, name: "Карты для сервисов", item: "https://payqo.ru/service" },
               { "@type": "ListItem", position: 3, name: page.name, item: url },
             ],
           }),
@@ -331,7 +331,7 @@ export const Route = createFileRoute("/service/$slug")({
       <SiteHeader />
       <div className="mx-auto max-w-2xl px-6 py-24 text-center">
         <h1 className="font-serif text-3xl font-bold text-primary">Страница сервиса не найдена</h1>
-        <p className="mt-3 text-muted-foreground">Такого сервиса пока нет в базе EraPay.</p>
+        <p className="mt-3 text-muted-foreground">Такого сервиса пока нет в базе Payqo.</p>
         <Link to="/" className="mt-6 inline-flex h-10 items-center rounded-md bg-primary px-4 text-sm font-semibold text-primary-foreground">
           К рейтингу
         </Link>

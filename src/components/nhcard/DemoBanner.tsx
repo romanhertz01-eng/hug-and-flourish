@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { X } from "lucide-react";
 
-const STORAGE_KEY = "erapay:demo-banner-dismissed";
+const STORAGE_KEY = "payqo:demo-banner-dismissed";
 
 export function DemoBanner() {
   const [visible, setVisible] = useState(false);

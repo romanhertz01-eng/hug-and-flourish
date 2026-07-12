@@ -78,7 +78,7 @@ export function AdminShell({ children, title }: { children: ReactNode; title: st
     <div className="flex min-h-screen bg-slate-50 text-slate-900">
       <aside className="w-60 shrink-0 border-r bg-white">
         <div className="border-b px-5 py-4">
-          <Link to="/" className="text-base font-bold">EraPay Admin</Link>
+          <Link to="/" className="text-base font-bold">Payqo Admin</Link>
         </div>
         <nav className="flex flex-col p-2 text-sm">
           {NAV.map((item) => {
