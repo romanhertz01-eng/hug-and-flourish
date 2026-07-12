@@ -13,7 +13,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { PUBLIC_ROBOTS } from "@/lib/config";
 
-const OG_IMAGE_URL = "https://payqo.ru/og-payqo.png";
+const OG_IMAGE_URL = "https://hug-and-flourish.lovable.app/og-payqo.png";
 
 function NotFoundComponent() {
   return (
