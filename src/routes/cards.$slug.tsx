@@ -122,7 +122,7 @@ function SideToc({ items }: { items: TocItem[] }) {
     <>
       {/* Desktop sticky */}
       <aside className="hidden lg:block">
-        <nav className="glass sticky top-24 rounded-2xl border border-white/10 p-3">
+        <nav className="glass sticky top-[96px] rounded-[20px] border border-white/10 p-4">
           <div className="mb-2 px-3 pt-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
             На этой странице
           </div>
