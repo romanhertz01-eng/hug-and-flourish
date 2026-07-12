@@ -1,4 +1,4 @@
-import { ShieldCheck, Users, Globe2, Link2, XCircle, Lock, AlertCircle } from "lucide-react";
+import { ChevronRight, Sparkles, CreditCard, Globe2, ShieldCheck } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 
 export function Hero({ total }: { total: number }) {
@@ -10,7 +10,7 @@ export function Hero({ total }: { total: number }) {
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(1200px 600px at 15% 10%, rgba(60,120,170,0.22), transparent 60%), radial-gradient(900px 500px at 90% 20%, rgba(194,166,51,0.14), transparent 60%), radial-gradient(700px 500px at 50% 100%, rgba(60,120,170,0.18), transparent 65%), linear-gradient(180deg, #000000 0%, #060B19 60%, #000000 100%)",
+            "radial-gradient(1200px 600px at 15% 10%, rgba(60,120,170,0.22), transparent 60%), radial-gradient(900px 500px at 90% 20%, rgba(194,166,51,0.12), transparent 60%), radial-gradient(700px 500px at 50% 100%, rgba(60,120,170,0.18), transparent 65%), linear-gradient(180deg, #000000 0%, #060B19 60%, #000000 100%)",
         }}
       />
       <div
@@ -22,149 +22,186 @@ export function Hero({ total }: { total: number }) {
         }}
       />
 
-      <div className="relative mx-auto grid max-w-[1240px] items-start gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.35fr_1fr] lg:gap-16 lg:px-8 lg:py-24">
-        <div>
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3.5 py-1.5 text-xs font-medium text-foreground/80 backdrop-blur-md">
-            <span className="inline-block h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_10px_rgba(194,166,51,0.8)]" />
-            Мы не продаём карты. Мы проверяем, сравниваем и помогаем выбрать.
-          </div>
+      <div className="relative mx-auto max-w-[1240px] px-4 pb-14 pt-10 sm:px-6 lg:px-8 lg:pb-20 lg:pt-14">
+        {/* Promo banner */}
+        <PromoBanner />
 
-          <h1 className="font-sans text-4xl font-light leading-[1.05] tracking-[-0.03em] text-foreground sm:text-5xl lg:text-[64px]">
-            Карты российских банков больше не работают за рубежом.{" "}
-            <span className="bg-gradient-to-r from-[oklch(0.82_0.08_240)] via-[oklch(0.68_0.09_245)] to-[oklch(0.82_0.13_90)] bg-clip-text font-normal text-transparent">
-              Мы нашли те, что работают.
-            </span>
-          </h1>
+        {/* Breadcrumbs */}
+        <nav aria-label="breadcrumb" className="mt-8 text-xs text-muted-foreground">
+          <ol className="flex flex-wrap items-center gap-1.5">
+            <li>
+              <Link to="/" className="hover:text-foreground/90 transition-colors">Главная</Link>
+            </li>
+            <li aria-hidden className="text-white/25"><ChevronRight className="h-3 w-3" /></li>
+            <li className="text-foreground/70">Виртуальные карты</li>
+          </ol>
+        </nav>
 
-          <p className="mt-6 max-w-[620px] text-[17px] leading-relaxed text-muted-foreground">
-            Не можете оплатить ChatGPT, Netflix или продлить подписку? Российские карты не принимают
-            в App&nbsp;Store, Google&nbsp;Play, Booking и на большинстве зарубежных сайтов.
-            Payqo — независимый мониторинг международных виртуальных карт, которые работают из России.
-            Сравниваем условия, тарифы и надёжность эмитентов — чтобы вы выбрали за пару минут,
-            а не искали методом проб и ошибок.
-          </p>
+        {/* Hero glass panel */}
+        <div className="glass-strong relative mt-5 overflow-hidden rounded-[28px] border border-white/10 p-8 shadow-[0_40px_120px_rgba(0,0,0,0.55)] sm:p-12 lg:p-16">
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0"
+            style={{
+              background:
+                "radial-gradient(600px 300px at 85% 0%, rgba(194,166,51,0.10), transparent 65%), radial-gradient(700px 400px at 0% 100%, rgba(60,120,170,0.18), transparent 65%)",
+            }}
+          />
+          <div className="relative max-w-[880px]">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3.5 py-1.5 text-xs font-medium text-foreground/80 backdrop-blur-md">
+              <Sparkles className="h-3.5 w-3.5 text-accent" />
+              Обновлено в 2026 году
+            </div>
 
-          <div className="mt-9 flex flex-wrap gap-3">
-            <a
-              href="#rating"
-              className="btn-pill inline-flex h-12 items-center bg-primary px-7 text-sm font-medium text-primary-foreground shadow-[0_0_30px_rgba(60,120,170,0.4)] transition-all hover:bg-primary/90 hover:shadow-[0_0_45px_rgba(60,120,170,0.65)]"
-            >
-              К рейтингу карт →
-            </a>
-            <Link
-              to="/podbor"
-              className="btn-pill inline-flex h-12 items-center border border-white/15 bg-white/[0.04] px-7 text-sm font-medium text-foreground backdrop-blur-md transition-all hover:border-white/30 hover:bg-white/[0.08]"
-            >
-              Подобрать под задачу
-            </Link>
-          </div>
+            <h1 className="mt-6 font-sans text-4xl font-light leading-[1.05] tracking-[-0.03em] text-foreground sm:text-5xl lg:text-[60px]">
+              Топ зарубежных виртуальных карт для оплаты{" "}
+              <span className="bg-gradient-to-r from-[oklch(0.82_0.08_240)] via-[oklch(0.68_0.09_245)] to-[oklch(0.82_0.13_90)] bg-clip-text font-normal text-transparent">
+                сервисов в 2026 году
+              </span>
+            </h1>
 
-          <div className="mt-9 flex flex-wrap gap-2">
-            <Chip icon={<Users className="h-3.5 w-3.5" />}>{total} сервисов в рейтинге</Chip>
-            <Chip icon={<Globe2 className="h-3.5 w-3.5" />}>7 стран выпуска</Chip>
-            <Chip icon={<ShieldCheck className="h-3.5 w-3.5" />} tone="accent">
-              Проверено редакцией
-            </Chip>
-            <Chip icon={<Link2 className="h-3.5 w-3.5" />}>Партнёрские ссылки раскрыты</Chip>
-          </div>
+            <p className="mt-6 max-w-[720px] text-[17px] leading-relaxed text-muted-foreground">
+              Payqo — независимый мониторинг сервисов виртуальных карт для россиян.
+              Мы не выпускаем карты и не оказываем услуг по их выпуску — только проверяем,
+              сравниваем и оцениваем сторонние сервисы. В рейтинге — {total} проверенных
+              карт с актуальными тарифами и способами пополнения.
+            </p>
 
-          <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs text-muted-foreground">
-            <span className="inline-flex items-center gap-1.5">
-              <XCircle className="h-3.5 w-3.5" aria-hidden />
-              Отклоняют оплату
-            </span>
-            <span aria-hidden className="text-white/20">·</span>
-            <span className="inline-flex items-center gap-1.5">
-              <Lock className="h-3.5 w-3.5" aria-hidden />
-              Блокируют карту
-            </span>
-            <span aria-hidden className="text-white/20">·</span>
-            <span className="inline-flex items-center gap-1.5">
-              <AlertCircle className="h-3.5 w-3.5" aria-hidden />
-              Скрытые комиссии съедают бюджет
-            </span>
-            <a href="#rating" className="font-medium text-accent hover:underline">
-              → Разбираемся, где этого нет
-            </a>
+            <div className="mt-9 flex flex-wrap gap-3">
+              <a
+                href="#rating"
+                className="btn-pill inline-flex h-12 w-full items-center justify-center bg-primary px-7 text-sm font-medium text-primary-foreground shadow-[0_0_30px_rgba(60,120,170,0.4)] transition-all hover:bg-primary/90 hover:shadow-[0_0_45px_rgba(60,120,170,0.65)] sm:w-auto"
+              >
+                Смотреть рейтинг →
+              </a>
+              <Link
+                to="/podbor"
+                className="btn-pill inline-flex h-12 w-full items-center justify-center border border-white/15 bg-white/[0.04] px-7 text-sm font-medium text-foreground backdrop-blur-md transition-all hover:border-white/30 hover:bg-white/[0.08] sm:w-auto"
+              >
+                Подобрать карту
+              </Link>
+            </div>
           </div>
         </div>
-
-        <aside className="self-start rounded-3xl border border-white/10 bg-white/[0.04] p-6 shadow-[0_30px_80px_rgba(0,0,0,0.5)] backdrop-blur-xl">
-          <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-            Кто составляет рейтинг
-          </div>
-
-          <div className="mt-5 flex items-start gap-4 border-b border-white/10 pb-5">
-            <Avatar initials="ДС" />
-            <div>
-              <div className="text-[11px] font-semibold uppercase tracking-wider text-accent">Автор</div>
-              <div className="mt-0.5 font-sans text-lg font-medium text-foreground">Дмитрий Соколовский</div>
-              <div className="mt-1 text-sm text-muted-foreground">
-                Главный редактор Payqo. 9 лет пишет о международных платежах и финтехе.
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-5 flex items-start gap-4">
-            <Avatar initials="МВ" tone="accent" />
-            <div>
-              <div className="text-[11px] font-semibold uppercase tracking-wider text-accent">Фактчек</div>
-              <div className="mt-0.5 font-sans text-lg font-medium text-foreground">Марина Вишневская</div>
-              <div className="mt-1 text-sm text-muted-foreground">
-                Финтех-аналитик Payqo. Сверила тарифы и условия эмитентов.
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-6 rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3">
-            <div className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
-              Что обновилось
-            </div>
-            <ul className="mt-2 space-y-1.5 text-sm text-foreground/85">
-              <li>· «Плати&nbsp;по&nbsp;миру» вернул выпуск за 2&nbsp;минуты</li>
-              <li>· WantToPay снизил обслуживание до 0&nbsp;₽</li>
-              <li>· Heleket добавил поддержку USDT&nbsp;TRC-20</li>
-            </ul>
-          </div>
-        </aside>
       </div>
     </section>
   );
 }
 
-function Chip({
-  children,
-  icon,
-  tone,
-}: {
-  children: React.ReactNode;
-  icon?: React.ReactNode;
-  tone?: "accent";
-}) {
-  const cls =
-    tone === "accent"
-      ? "border-accent/40 bg-accent/10 text-accent"
-      : "border-white/12 bg-white/[0.04] text-foreground/80";
+function PromoBanner() {
   return (
-    <span
-      className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-medium backdrop-blur-md ${cls}`}
+    <div
+      className="relative overflow-hidden rounded-[28px] border border-white/10 p-6 shadow-[0_30px_80px_rgba(0,0,0,0.5)] sm:p-8 lg:p-10"
+      style={{
+        background:
+          "linear-gradient(120deg, oklch(0.34 0.09 245) 0%, oklch(0.24 0.07 245) 45%, oklch(0.18 0.05 245) 100%)",
+      }}
     >
-      {icon}
-      {children}
-    </span>
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(500px 260px at 90% 20%, rgba(194,166,51,0.20), transparent 60%), radial-gradient(600px 300px at 10% 100%, rgba(120,180,230,0.20), transparent 60%)",
+        }}
+      />
+      <div className="relative grid items-center gap-8 lg:grid-cols-[1.25fr_1fr]">
+        <div>
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.08] px-3 py-1 text-[11px] font-medium uppercase tracking-wider text-foreground/85 backdrop-blur-md">
+            <span className="h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_10px_rgba(194,166,51,0.9)]" />
+            Payqo рейтинг
+          </div>
+          <h2 className="mt-4 font-sans text-2xl font-light leading-tight tracking-tight text-foreground sm:text-3xl lg:text-[36px]">
+            Ищете карту для зарубежных сервисов и оплаты за границей?
+          </h2>
+          <p className="mt-3 max-w-[540px] text-sm leading-relaxed text-foreground/75 sm:text-base">
+            Рабочие карты для ChatGPT, Netflix, Steam и сотен сервисов —
+            подобраны и проверены редакцией.
+          </p>
+          <a
+            href="#rating"
+            className="btn-pill mt-6 inline-flex h-11 items-center bg-foreground px-6 text-sm font-medium text-background transition-all hover:bg-foreground/90"
+          >
+            К рейтингу карт →
+          </a>
+        </div>
+
+        <div className="hidden lg:block">
+          <PromoVisual />
+        </div>
+        <div className="lg:hidden">
+          <PromoVisual compact />
+        </div>
+      </div>
+    </div>
   );
 }
 
-function Avatar({ initials, tone }: { initials: string; tone?: "accent" }) {
+function PromoVisual({ compact = false }: { compact?: boolean }) {
+  return (
+    <div className={`relative ${compact ? "h-[140px]" : "h-[220px]"}`}>
+      {/* Card mock 1 */}
+      <div
+        className="absolute right-6 top-2 h-[130px] w-[210px] rotate-[-8deg] rounded-2xl border border-white/15 p-4 shadow-[0_20px_60px_rgba(0,0,0,0.55)] backdrop-blur-xl"
+        style={{
+          background:
+            "linear-gradient(135deg, rgba(60,120,170,0.55), rgba(20,40,70,0.65))",
+        }}
+      >
+        <div className="flex items-center justify-between">
+          <div className="text-[10px] font-semibold uppercase tracking-wider text-foreground/85">Virtual</div>
+          <CreditCard className="h-4 w-4 text-foreground/85" />
+        </div>
+        <div className="mt-6 font-mono text-sm text-foreground/90 tracking-widest">
+          •••• 8842
+        </div>
+        <div className="mt-2 text-[10px] uppercase tracking-wider text-foreground/60">
+          Payqo Rated
+        </div>
+      </div>
+
+      {/* Card mock 2 */}
+      <div
+        className="absolute left-2 bottom-0 h-[130px] w-[210px] rotate-[6deg] rounded-2xl border border-white/15 p-4 shadow-[0_20px_60px_rgba(0,0,0,0.55)] backdrop-blur-xl"
+        style={{
+          background:
+            "linear-gradient(135deg, rgba(194,166,51,0.35), rgba(60,45,10,0.7))",
+        }}
+      >
+        <div className="flex items-center justify-between">
+          <div className="text-[10px] font-semibold uppercase tracking-wider text-foreground/85">Gold Tier</div>
+          <ShieldCheck className="h-4 w-4 text-accent" />
+        </div>
+        <div className="mt-6 font-mono text-sm text-foreground/90 tracking-widest">
+          •••• 2019
+        </div>
+        <div className="mt-2 text-[10px] uppercase tracking-wider text-foreground/60">
+          Top rating
+        </div>
+      </div>
+
+      {/* Floating service pills */}
+      <div className="absolute right-0 bottom-2 flex flex-col items-end gap-2">
+        <ServicePill>ChatGPT</ServicePill>
+        <ServicePill tone="accent">Netflix</ServicePill>
+        <ServicePill>
+          <Globe2 className="h-3 w-3" /> 200+ сервисов
+        </ServicePill>
+      </div>
+    </div>
+  );
+}
+
+function ServicePill({ children, tone }: { children: React.ReactNode; tone?: "accent" }) {
   const cls =
     tone === "accent"
-      ? "bg-gradient-to-br from-accent to-[oklch(0.6_0.13_85)] text-accent-foreground shadow-[0_0_20px_rgba(194,166,51,0.35)]"
-      : "bg-gradient-to-br from-primary to-[oklch(0.42_0.09_245)] text-primary-foreground shadow-[0_0_20px_rgba(60,120,170,0.4)]";
+      ? "border-accent/40 bg-accent/15 text-accent"
+      : "border-white/15 bg-white/[0.08] text-foreground/90";
   return (
-    <div
-      className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full font-sans text-sm font-medium ${cls}`}
+    <span
+      className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-[11px] font-medium backdrop-blur-md ${cls}`}
     >
-      {initials}
-    </div>
+      {children}
+    </span>
   );
 }
