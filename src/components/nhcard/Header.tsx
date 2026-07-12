@@ -110,17 +110,17 @@ export function SiteHeader() {
             aria-hidden="true"
             className="flex h-8 w-8 items-center justify-center rounded-xl border border-white/10 bg-gradient-to-br from-primary/80 to-primary/40 font-sans text-lg font-medium text-primary-foreground shadow-[0_0_20px_rgba(60,120,170,0.45)]"
           >
-            E
+            P
           </span>
           <span
             className="font-sans text-2xl font-medium tracking-tight text-foreground"
             style={{ textShadow: "0 0 24px rgba(60,120,170,0.35)" }}
           >
             <span className="bg-gradient-to-r from-[oklch(0.78_0.09_240)] to-[oklch(0.62_0.09_245)] bg-clip-text text-transparent">
-              Era
+              Pay
             </span>
             <span className="bg-gradient-to-r from-accent to-[oklch(0.82_0.13_90)] bg-clip-text text-transparent">
-              Pay
+              qo
             </span>
           </span>
         </Link>
