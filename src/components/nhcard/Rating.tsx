@@ -111,28 +111,28 @@ export function RatingSection({ cards, withControls = false }: { cards: Card[]; 
   const activeChipObj = chips.find((c) => c.id === activeChip) ?? null;
 
   return (
-    <section ref={sectionRef} id="rating" className="scroll-mt-20 border-b border-border bg-background">
-      <div className="mx-auto max-w-[1240px] px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
-        <div className="mb-5 flex flex-col gap-2">
+    <section ref={sectionRef} id="rating" className="scroll-mt-20 border-b border-white/5 bg-background">
+      <div className="mx-auto max-w-[1240px] px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+        <div className="mb-6 flex flex-col gap-2">
           <div className="text-xs font-semibold uppercase tracking-wider text-accent">Рейтинг · 2026</div>
-          <h2 className="font-serif text-3xl font-bold tracking-tight text-primary sm:text-4xl">
+          <h2 className="font-sans text-3xl font-light tracking-tight text-foreground sm:text-4xl">
             15 зарубежных виртуальных карт — от лучших к нишевым
           </h2>
         </div>
 
         {withControls && (
           <>
-            <div className="mb-3 flex flex-wrap items-center gap-3">
+            <div className="mb-4 flex flex-wrap items-center gap-3">
               <div className="-mx-4 flex-1 overflow-x-auto px-4 sm:mx-0 sm:overflow-visible sm:px-0">
                 <div className="flex min-w-max items-center gap-2">
                   <button
                     type="button"
                     onClick={() => setActiveChip(null)}
                     aria-pressed={activeChip === null}
-                    className={`inline-flex h-8 items-center rounded-md border px-3 text-xs font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 ${
+                    className={`btn-pill inline-flex h-9 items-center border px-4 text-xs font-medium backdrop-blur-md transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 ${
                       activeChip === null
-                        ? "border-primary bg-primary text-primary-foreground"
-                        : "border-border bg-background text-foreground/75 hover:border-primary/40 hover:text-primary"
+                        ? "border-primary/60 bg-primary text-primary-foreground shadow-[0_0_20px_rgba(60,120,170,0.4)]"
+                        : "border-white/10 bg-white/[0.04] text-foreground/75 hover:border-white/25 hover:bg-white/[0.08] hover:text-foreground"
                     }`}
                   >
                     Все {cards.length}
@@ -145,10 +145,10 @@ export function RatingSection({ cards, withControls = false }: { cards: Card[]; 
                         type="button"
                         onClick={() => setActiveChip(active ? null : f.id)}
                         aria-pressed={active}
-                        className={`inline-flex h-8 items-center whitespace-nowrap rounded-md border px-3 text-xs font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 ${
+                        className={`btn-pill inline-flex h-9 items-center whitespace-nowrap border px-4 text-xs font-medium backdrop-blur-md transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 ${
                           active
-                            ? "border-primary bg-primary text-primary-foreground"
-                            : "border-border bg-background text-foreground/75 hover:border-primary/40 hover:text-primary"
+                            ? "border-primary/60 bg-primary text-primary-foreground shadow-[0_0_20px_rgba(60,120,170,0.4)]"
+                            : "border-white/10 bg-white/[0.04] text-foreground/75 hover:border-white/25 hover:bg-white/[0.08] hover:text-foreground"
                         }`}
                       >
                         {f.label}
@@ -165,11 +165,11 @@ export function RatingSection({ cards, withControls = false }: { cards: Card[]; 
                   id="sort"
                   value={sort}
                   onChange={(e) => setSort(e.target.value as SortKey)}
-                  className="h-8 rounded-md border border-border bg-background px-2 text-xs font-medium text-foreground focus:border-primary focus:outline-none"
+                  className="btn-pill h-9 border border-white/10 bg-white/[0.04] px-3 text-xs font-medium text-foreground backdrop-blur-md focus:border-primary/60 focus:outline-none"
                 >
-                  <option value="rank">по рейтингу</option>
-                  <option value="price">по цене выпуска</option>
-                  <option value="speed">по скорости выпуска</option>
+                  <option value="rank" className="bg-black text-foreground">по рейтингу</option>
+                  <option value="price" className="bg-black text-foreground">по цене выпуска</option>
+                  <option value="speed" className="bg-black text-foreground">по скорости выпуска</option>
                 </select>
               </div>
             </div>
@@ -182,33 +182,33 @@ export function RatingSection({ cards, withControls = false }: { cards: Card[]; 
         )}
 
         {filtered.length === 0 ? (
-          <div className="rounded-lg border border-border bg-surface/40 p-8 text-center">
+          <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 text-center backdrop-blur-xl">
             <p className="mb-4 text-sm text-muted-foreground">Под этот фильтр карт нет</p>
             <button
               type="button"
               onClick={() => setActiveChip(null)}
-              className="inline-flex h-9 items-center rounded-md border border-border bg-background px-4 text-xs font-semibold text-primary hover:border-primary/40"
+              className="btn-pill inline-flex h-9 items-center border border-white/15 bg-white/[0.04] px-4 text-xs font-semibold text-foreground hover:border-white/30 hover:bg-white/[0.08]"
             >
               Сбросить фильтр
             </button>
           </div>
         ) : (
           <>
-        {/* Desktop table */}
-        <div className="hidden overflow-x-auto rounded-lg border border-border bg-background shadow-sm lg:block">
+        {/* Desktop table — glass island */}
+        <div className="hidden overflow-x-auto rounded-3xl border border-white/10 bg-white/[0.03] shadow-[0_30px_80px_rgba(0,0,0,0.5)] backdrop-blur-xl lg:block">
           <table className="w-full border-collapse text-sm">
             <thead>
-              <tr className="border-b border-border bg-surface text-left text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
-                <th className="w-14 py-3 pl-4">№</th>
-                <th className="py-3 pr-4">Сервис</th>
-                <th className="min-w-[110px] px-2.5 py-3">Выпуск</th>
-                <th className="px-2.5 py-3">Обслуж.</th>
-                <th className="px-2.5 py-3">Пополнение</th>
-                <th className="min-w-[120px] px-2.5 py-3">Лимит/мес</th>
-                <th className="px-2.5 py-3">Скорость</th>
-                <th className="hidden px-2.5 py-3 2xl:table-cell">Сервисы</th>
-                <th className="px-2.5 py-3">Оценка</th>
-                <th className="sticky right-0 bg-surface py-3 pl-3 pr-4 shadow-[-8px_0_8px_-8px_rgba(0,0,0,0.06)]"></th>
+              <tr className="border-b border-white/10 bg-white/[0.02] text-left text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+                <th className="w-14 py-4 pl-5">№</th>
+                <th className="py-4 pr-4">Сервис</th>
+                <th className="min-w-[110px] px-2.5 py-4">Выпуск</th>
+                <th className="px-2.5 py-4">Обслуж.</th>
+                <th className="px-2.5 py-4">Пополнение</th>
+                <th className="min-w-[120px] px-2.5 py-4">Лимит/мес</th>
+                <th className="px-2.5 py-4">Скорость</th>
+                <th className="hidden px-2.5 py-4 2xl:table-cell">Сервисы</th>
+                <th className="px-2.5 py-4">Оценка</th>
+                <th className="sticky right-0 bg-[oklch(0.14_0.02_240)] py-4 pl-3 pr-5"></th>
               </tr>
             </thead>
             <tbody>
