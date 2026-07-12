@@ -4,16 +4,16 @@ import { InfoShell, H2, P, UL } from "@/components/nhcard/InfoShell";
 export const Route = createFileRoute("/editorial-policy")({
   head: () => ({
     meta: [
-      { title: "Редакционная политика — EraPay" },
+      { title: "Редакционная политика — Payqo" },
       {
         name: "description",
         content:
-          "Как в EraPay отделены редакция и коммерция: правила рейтинга, маркировка партнёрских ссылок и рекламных размещений.",
+          "Как в Payqo отделены редакция и коммерция: правила рейтинга, маркировка партнёрских ссылок и рекламных размещений.",
       },
-      { property: "og:title", content: "Редакционная политика — EraPay" },
+      { property: "og:title", content: "Редакционная политика — Payqo" },
       {
         property: "og:description",
-        content: "Правила рейтинга, партнёрских ссылок и рекламных размещений EraPay.",
+        content: "Правила рейтинга, партнёрских ссылок и рекламных размещений Payqo.",
       },
       { property: "og:type", content: "article" },
       { name: "twitter:card", content: "summary" },
@@ -27,7 +27,7 @@ function EditorialPolicyPage() {
     <InfoShell
       eyebrow="Редакция"
       title="Политика редакционной независимости"
-      lead="Редакционная оценка EraPay формируется по методологии и не зависит от коммерческих отношений с эмитентами карт."
+      lead="Редакционная оценка Payqo формируется по методологии и не зависит от коммерческих отношений с эмитентами карт."
     >
       <H2>Оценка формируется по методологии</H2>
       <P>

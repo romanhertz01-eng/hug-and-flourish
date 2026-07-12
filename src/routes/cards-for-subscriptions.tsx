@@ -8,7 +8,7 @@ import { RatingSection } from "@/components/nhcard/Rating";
 import { cardsQueryOptions } from "@/lib/cards";
 import { PUBLIC_ROBOTS } from "@/lib/config";
 
-const URL = "https://erapay.ru/cards-for-subscriptions";
+const URL = "https://payqo.ru/cards-for-subscriptions";
 const TITLE = "Виртуальная карта для подписок: рейтинг 2026";
 const DESC =
   "Виртуальная карта для оплаты иностранных подписок в 2026 году: ChatGPT, Netflix, Spotify, YouTube Premium, Midjourney. Рейтинг карт с рублёвым пополнением.";
@@ -76,7 +76,7 @@ export const Route = createFileRoute("/cards-for-subscriptions")({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Главная", item: "https://erapay.ru/" },
+            { "@type": "ListItem", position: 1, name: "Главная", item: "https://payqo.ru/" },
             { "@type": "ListItem", position: 2, name: "Карты для подписок", item: URL },
           ],
         }),

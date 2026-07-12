@@ -7,7 +7,7 @@ import { Check, X, Loader2 } from "lucide-react";
 export const Route = createFileRoute("/admin/reviews")({
   head: () => ({
     meta: [
-      { title: "Модерация отзывов — EraPay Admin" },
+      { title: "Модерация отзывов — Payqo Admin" },
       { name: "robots", content: "noindex, nofollow" },
     ],
   }),

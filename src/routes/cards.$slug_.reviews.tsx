@@ -14,9 +14,9 @@ export const Route = createFileRoute("/cards/$slug_/reviews")({
     const data = loaderData as { name?: string; slug?: string } | undefined;
     const name = data?.name ?? "Карта";
     const slug = data?.slug ?? "";
-    const url = `https://erapay.ru/cards/${slug}/reviews`;
-    const title = `${name} — отзывы пользователей 2026 | EraPay`;
-    const description = `Отзывы пользователей о карте ${name}: реальный опыт, оценки, комментарии. Оставьте свой отзыв — EraPay.`;
+    const url = `https://payqo.ru/cards/${slug}/reviews`;
+    const title = `${name} — отзывы пользователей 2026 | Payqo`;
+    const description = `Отзывы пользователей о карте ${name}: реальный опыт, оценки, комментарии. Оставьте свой отзыв — Payqo.`;
     return {
       meta: [
         { title },
@@ -77,14 +77,14 @@ function CardReviewsPage() {
 
   if (!card) return null;
 
-  const url = `https://erapay.ru/cards/${card.slug}/reviews`;
-  const cardUrl = `https://erapay.ru/cards/${card.slug}`;
+  const url = `https://payqo.ru/cards/${card.slug}/reviews`;
+  const cardUrl = `https://payqo.ru/cards/${card.slug}`;
 
   const breadcrumbLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Главная", item: "https://erapay.ru/" },
+      { "@type": "ListItem", position: 1, name: "Главная", item: "https://payqo.ru/" },
       { "@type": "ListItem", position: 2, name: card.name, item: cardUrl },
       { "@type": "ListItem", position: 3, name: "Отзывы", item: url },
     ],

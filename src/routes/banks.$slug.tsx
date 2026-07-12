@@ -62,7 +62,7 @@ const FAQS_BY_SLUG: Record<string, Faq[]> = {
       a: "Да. Российский налоговый резидент обязан уведомить налоговую об открытии счёта в иностранном банке и ежегодно подавать отчёт о движении средств.",
     },
     {
-      q: "Чем такая карта лучше виртуалки из рейтинга EraPay?",
+      q: "Чем такая карта лучше виртуалки из рейтинга Payqo?",
       a: "Она даёт полноценный IBAN, приём SWIFT/SEPA-переводов, снятие наличных в банкоматах и стабильные лимиты. Для разовых онлайн-покупок и подписок это избыточно — виртуалка проще и дешевле.",
     },
   ],
@@ -77,7 +77,7 @@ const FAQS_BY_SLUG: Record<string, Faq[]> = {
     },
     {
       q: "Что использовать вместо кредитной карты за рубежом?",
-      a: "Для оплаты подписок, рекламы и покупок в иностранных магазинах подойдёт виртуальная карта из рейтинга EraPay — без резидентства и без кредитных обязательств.",
+      a: "Для оплаты подписок, рекламы и покупок в иностранных магазинах подойдёт виртуальная карта из рейтинга Payqo — без резидентства и без кредитных обязательств.",
     },
   ],
   "s-keshbekom": [
@@ -90,8 +90,8 @@ const FAQS_BY_SLUG: Record<string, Faq[]> = {
       a: "Обычно нет. Годовое обслуживание, конвертация и налоговая отчётность съедают выгоду. Смысл появляется, если вы и так живёте или работаете в этой стране.",
     },
     {
-      q: "Есть ли кэшбэк у виртуальных карт из рейтинга EraPay?",
-      a: "У части сервисов есть возврат комиссии или бонусные лимиты. Сравнить условия можно в рейтинге EraPay.",
+      q: "Есть ли кэшбэк у виртуальных карт из рейтинга Payqo?",
+      a: "У части сервисов есть возврат комиссии или бонусные лимиты. Сравнить условия можно в рейтинге Payqo.",
     },
   ],
 };
@@ -101,15 +101,15 @@ export const Route = createFileRoute("/banks/$slug")({
     const p = loaderData as { page?: BankPage } | undefined;
     if (!p?.page) {
       return {
-        meta: [{ title: "Страница не найдена · EraPay" }, { name: "robots", content: "noindex" }],
+        meta: [{ title: "Страница не найдена · Payqo" }, { name: "robots", content: "noindex" }],
       };
     }
     const page = p.page;
-    const url = `https://erapay.ru/banks/${params.slug}`;
+    const url = `https://payqo.ru/banks/${params.slug}`;
     const faqs = FAQS_BY_SLUG[params.slug] ?? [];
     return {
       meta: [
-        { title: page.meta_title || `${page.title} · EraPay` },
+        { title: page.meta_title || `${page.title} · Payqo` },
         { name: "description", content: page.meta_description || page.intro_text },
         { name: "keywords", content: page.keyword },
         { property: "og:title", content: page.meta_title || page.title },
@@ -130,8 +130,8 @@ export const Route = createFileRoute("/banks/$slug")({
             mainEntityOfPage: url,
             publisher: {
               "@type": "Organization",
-              name: "EraPay",
-              logo: { "@type": "ImageObject", url: "https://erapay.ru/apple-touch-icon.png" },
+              name: "Payqo",
+              logo: { "@type": "ImageObject", url: "https://payqo.ru/apple-touch-icon.png" },
             },
           }),
         },
@@ -141,8 +141,8 @@ export const Route = createFileRoute("/banks/$slug")({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Главная", item: "https://erapay.ru/" },
-              { "@type": "ListItem", position: 2, name: "Банковские карты", item: "https://erapay.ru/banks" },
+              { "@type": "ListItem", position: 1, name: "Главная", item: "https://payqo.ru/" },
+              { "@type": "ListItem", position: 2, name: "Банковские карты", item: "https://payqo.ru/banks" },
               { "@type": "ListItem", position: 3, name: page.title, item: url },
             ],
           }),
@@ -224,7 +224,7 @@ function BankArticlePage() {
               <span className="text-foreground">{page.title}</span>
             </nav>
             <div className="text-xs font-semibold uppercase tracking-wider text-accent">
-              Обзор EraPay
+              Обзор Payqo
             </div>
             <h1 className="mt-2 font-serif text-3xl font-bold tracking-tight text-primary sm:text-4xl">
               {page.h1}
@@ -261,7 +261,7 @@ function BankArticlePage() {
                 Проще и быстрее
               </div>
               <h3 className="mt-1 font-serif text-xl font-bold text-primary">
-                Рейтинг зарубежных виртуальных карт EraPay
+                Рейтинг зарубежных виртуальных карт Payqo
               </h3>
               <p className="mt-2 text-sm text-muted-foreground">
                 Для подписок, рекламы и покупок в иностранных магазинах виртуалка обычно

@@ -31,13 +31,13 @@ export const Route = createFileRoute("/cards/$slug")({
     const data = loaderData as { name?: string; slug?: string } | undefined;
     const name = data?.name ?? "Карта";
     const slug = data?.slug ?? "";
-    const url = `https://erapay.ru/cards/${slug}`;
+    const url = `https://payqo.ru/cards/${slug}`;
     return {
       meta: [
-        { title: `${name} — обзор и тарифы · EraPay` },
-        { name: "description", content: `Условия, лимиты и способы пополнения карты ${name}. Проверено редакцией EraPay.` },
-        { property: "og:title", content: `${name} — обзор и тарифы · EraPay` },
-        { property: "og:description", content: `Условия, лимиты и способы пополнения карты ${name}. Проверено редакцией EraPay.` },
+        { title: `${name} — обзор и тарифы · Payqo` },
+        { name: "description", content: `Условия, лимиты и способы пополнения карты ${name}. Проверено редакцией Payqo.` },
+        { property: "og:title", content: `${name} — обзор и тарифы · Payqo` },
+        { property: "og:description", content: `Условия, лимиты и способы пополнения карты ${name}. Проверено редакцией Payqo.` },
         { property: "og:url", content: url },
         { property: "og:type", content: "article" },
         { name: "robots", content: PUBLIC_ROBOTS },
@@ -171,7 +171,7 @@ function CardPage() {
     },
   ];
 
-  const url = `https://erapay.ru/cards/${card.slug}`;
+  const url = `https://payqo.ru/cards/${card.slug}`;
   const productLd: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -193,8 +193,8 @@ function CardPage() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Главная", item: "https://erapay.ru/" },
-      { "@type": "ListItem", position: 2, name: "Рейтинг карт", item: "https://erapay.ru/#rating" },
+      { "@type": "ListItem", position: 1, name: "Главная", item: "https://payqo.ru/" },
+      { "@type": "ListItem", position: 2, name: "Рейтинг карт", item: "https://payqo.ru/#rating" },
       { "@type": "ListItem", position: 3, name: card.name, item: url },
     ],
   };
@@ -521,7 +521,7 @@ function CardPage() {
               <Link to="/" className="hover:text-primary">Вернуться к рейтингу</Link>
             </p>
             <p className="mt-3 text-xs text-muted-foreground">
-              EraPay не является эмитентом карты. Условия могут меняться — проверяйте информацию на сайте эмитента.
+              Payqo не является эмитентом карты. Условия могут меняться — проверяйте информацию на сайте эмитента.
             </p>
           </div>
         </section>

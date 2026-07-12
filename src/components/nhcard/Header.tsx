@@ -104,7 +104,7 @@ export function SiteHeader() {
         <Link
           to="/"
           className="flex items-center gap-2"
-          aria-label="EraPay — на главную"
+          aria-label="Payqo — на главную"
         >
           <span
             aria-hidden="true"

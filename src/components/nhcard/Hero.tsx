@@ -39,7 +39,7 @@ export function Hero({ total }: { total: number }) {
           <p className="mt-6 max-w-[620px] text-[17px] leading-relaxed text-muted-foreground">
             Не можете оплатить ChatGPT, Netflix или продлить подписку? Российские карты не принимают
             в App&nbsp;Store, Google&nbsp;Play, Booking и на большинстве зарубежных сайтов.
-            EraPay — независимый мониторинг международных виртуальных карт, которые работают из России.
+            Payqo — независимый мониторинг международных виртуальных карт, которые работают из России.
             Сравниваем условия, тарифы и надёжность эмитентов — чтобы вы выбрали за пару минут,
             а не искали методом проб и ошибок.
           </p>
@@ -100,7 +100,7 @@ export function Hero({ total }: { total: number }) {
               <div className="text-[11px] font-semibold uppercase tracking-wider text-accent">Автор</div>
               <div className="mt-0.5 font-sans text-lg font-medium text-foreground">Дмитрий Соколовский</div>
               <div className="mt-1 text-sm text-muted-foreground">
-                Главный редактор EraPay. 9 лет пишет о международных платежах и финтехе.
+                Главный редактор Payqo. 9 лет пишет о международных платежах и финтехе.
               </div>
             </div>
           </div>
@@ -111,7 +111,7 @@ export function Hero({ total }: { total: number }) {
               <div className="text-[11px] font-semibold uppercase tracking-wider text-accent">Фактчек</div>
               <div className="mt-0.5 font-sans text-lg font-medium text-foreground">Марина Вишневская</div>
               <div className="mt-1 text-sm text-muted-foreground">
-                Финтех-аналитик EraPay. Сверила тарифы и условия эмитентов.
+                Финтех-аналитик Payqo. Сверила тарифы и условия эмитентов.
               </div>
             </div>
           </div>

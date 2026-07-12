@@ -9,7 +9,7 @@ import { cardsQueryOptions } from "@/lib/cards";
 import { PUBLIC_ROBOTS } from "@/lib/config";
 import { publishedServicesQueryOptions } from "@/lib/service-links";
 
-const URL_ = "https://erapay.ru/gaming-cards";
+const URL_ = "https://payqo.ru/gaming-cards";
 const TITLE = "Карты для оплаты игр: Steam, PlayStation, Xbox в 2026 году";
 const DESC =
   "Виртуальные карты для пополнения Steam, PlayStation Store и Xbox: региональные кошельки, локальные цены, оплата DLC и подписок.";
@@ -60,7 +60,7 @@ export const Route = createFileRoute("/gaming-cards")({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Главная", item: "https://erapay.ru/" },
+            { "@type": "ListItem", position: 1, name: "Главная", item: "https://payqo.ru/" },
             { "@type": "ListItem", position: 2, name: "Карты для игр", item: URL_ },
           ],
         }),

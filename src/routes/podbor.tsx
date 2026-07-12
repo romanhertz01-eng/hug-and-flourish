@@ -11,13 +11,13 @@ import { noWrapMoney } from "@/lib/format";
 export const Route = createFileRoute("/podbor")({
   head: () => ({
     meta: [
-      { title: "Подбор карты — EraPay" },
+      { title: "Подбор карты — Payqo" },
       {
         name: "description",
         content:
           "Пошаговый подбор зарубежной виртуальной карты для россиян: 6 вопросов и персональная рекомендация.",
       },
-      { property: "og:title", content: "Подбор карты — EraPay" },
+      { property: "og:title", content: "Подбор карты — Payqo" },
       {
         property: "og:description",
         content: "6 вопросов — и мы подберём карту под ваши задачи, бюджет и способ пополнения.",

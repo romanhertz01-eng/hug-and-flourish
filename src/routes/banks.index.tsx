@@ -30,22 +30,22 @@ const banksListQueryOptions = queryOptions({
 export const Route = createFileRoute("/banks/")({
   head: () => ({
     meta: [
-      { title: "Банковские карты иностранных банков для россиян — EraPay" },
+      { title: "Банковские карты иностранных банков для россиян — Payqo" },
       {
         name: "description",
         content:
           "Полноценные карты иностранных банков с IBAN для россиян: дебетовые, кредитные, с кэшбэком. Чем отличаются от виртуальных карт-посредников.",
       },
-      { property: "og:title", content: "Банковские карты иностранных банков — EraPay" },
+      { property: "og:title", content: "Банковские карты иностранных банков — Payqo" },
       {
         property: "og:description",
         content:
           "Обзор реальных карт иностранных банков для россиян: где открыть, требования, плюсы и минусы.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://erapay.ru/banks" },
+      { property: "og:url", content: "https://payqo.ru/banks" },
     ],
-    links: [{ rel: "canonical", href: "https://erapay.ru/banks" }],
+    links: [{ rel: "canonical", href: "https://payqo.ru/banks" }],
   }),
   loader: ({ context }) => context.queryClient.ensureQueryData(banksListQueryOptions),
   component: BanksIndexPage,
@@ -77,7 +77,7 @@ function BanksIndexPage() {
               <span className="text-foreground">Банковские карты</span>
             </nav>
             <div className="text-xs font-semibold uppercase tracking-wider text-accent">
-              Обзор EraPay
+              Обзор Payqo
             </div>
             <h1 className="mt-2 font-serif text-4xl font-bold tracking-tight text-primary sm:text-5xl">
               Банковские карты иностранных банков
@@ -87,7 +87,7 @@ function BanksIndexPage() {
               не виртуальные карты-посредники, а полноценный банковский продукт. Ниже разберём,
               для кого это подходит, какие бывают виды и когда проще ограничиться виртуалкой из{" "}
               <Link to="/" hash="rating" className="underline hover:text-primary">
-                рейтинга EraPay
+                рейтинга Payqo
               </Link>
               .
             </p>

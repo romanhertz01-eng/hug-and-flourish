@@ -23,29 +23,29 @@ const TOPIC: TopicConfig = {
   key: "crypto",
   sectionLabel: "Крипта",
   indexPath: "/crypto",
-  eyebrow: "Криптовалюта · Экспертиза EraPay",
+  eyebrow: "Криптовалюта · Экспертиза Payqo",
   faq: [],
 };
 
 export const Route = createFileRoute("/crypto/")({
   head: () => ({
     meta: [
-      { title: "Криптовалюта — обменники, биржи, кошельки · EraPay" },
+      { title: "Криптовалюта — обменники, биржи, кошельки · Payqo" },
       {
         name: "description",
         content:
-          "Раздел о криптовалюте: как выбрать обменник, где купить USDT за рубли, лучшие биржи и кошельки, вывод в рубли. Обзоры EraPay.",
+          "Раздел о криптовалюте: как выбрать обменник, где купить USDT за рубли, лучшие биржи и кошельки, вывод в рубли. Обзоры Payqo.",
       },
-      { property: "og:title", content: "Криптовалюта — раздел EraPay" },
+      { property: "og:title", content: "Криптовалюта — раздел Payqo" },
       {
         property: "og:description",
         content: "Обзоры обменников, бирж, кошельков и способов покупки криптовалюты за рубли.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://erapay.ru/crypto" },
+      { property: "og:url", content: "https://payqo.ru/crypto" },
       { name: "robots", content: PUBLIC_ROBOTS },
     ],
-    links: [{ rel: "canonical", href: "https://erapay.ru/crypto" }],
+    links: [{ rel: "canonical", href: "https://payqo.ru/crypto" }],
   }),
   loader: ({ context }) => context.queryClient.ensureQueryData(listQO),
   component: CryptoIndex,

@@ -7,10 +7,10 @@ import { PUBLIC_ROBOTS } from "@/lib/config";
 
 export const Route = createFileRoute("/network/")({
   head: () => {
-    const url = "https://erapay.ru/network";
-    const title = "Платёжные системы: Visa и Mastercard для россиян · EraPay";
+    const url = "https://payqo.ru/network";
+    const title = "Платёжные системы: Visa и Mastercard для россиян · Payqo";
     const description =
-      "Виртуальные карты Visa и Mastercard из России в 2026 году: сравнение платёжных систем, топ карт и рекомендации редакции EraPay.";
+      "Виртуальные карты Visa и Mastercard из России в 2026 году: сравнение платёжных систем, топ карт и рекомендации редакции Payqo.";
     return {
       meta: [
         { title },

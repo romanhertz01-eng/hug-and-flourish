@@ -60,7 +60,7 @@ function stepsFor(page: GuidePage): Step[] {
     return [
       {
         t: `Выберите карту под ${n}`,
-        d: `Откройте рейтинг EraPay и подберите зарубежную виртуальную карту с подходящим BIN, лимитами и стоимостью обслуживания — карту, у которой пользователи уже успешно оплачивали ${n}.`,
+        d: `Откройте рейтинг Payqo и подберите зарубежную виртуальную карту с подходящим BIN, лимитами и стоимостью обслуживания — карту, у которой пользователи уже успешно оплачивали ${n}.`,
       },
       {
         t: "Оформите выпуск",
@@ -87,7 +87,7 @@ function stepsFor(page: GuidePage): Step[] {
   return [
     {
       t: `Какие карты брать в ${n}`,
-      d: `Возьмите минимум две зарубежные карты разных платёжных систем (Visa и Mastercard) из рейтинга EraPay — так вы застрахованы, если одна не сработает на кассе или в банкомате в ${n}.`,
+      d: `Возьмите минимум две зарубежные карты разных платёжных систем (Visa и Mastercard) из рейтинга Payqo — так вы застрахованы, если одна не сработает на кассе или в банкомате в ${n}.`,
     },
     {
       t: "Наличные и валюта",
@@ -122,14 +122,14 @@ function faqFor(page: GuidePage): { q: string; a: string }[] {
       },
       {
         q: `Что делать, если платёж в ${n} не проходит?`,
-        a: `Проверьте баланс, лимиты и 3-D Secure карты. Если ${n} по-прежнему отклоняет платёж — попробуйте карту с другим BIN из рейтинга EraPay: разные страны эмитента дают разный результат.`,
+        a: `Проверьте баланс, лимиты и 3-D Secure карты. Если ${n} по-прежнему отклоняет платёж — попробуйте карту с другим BIN из рейтинга Payqo: разные страны эмитента дают разный результат.`,
       },
     ];
   }
   return [
     {
       q: `Работают ли российские карты в ${n}?`,
-      a: `Карты Visa и Mastercard, выпущенные в РФ, не работают в ${n} с 2022 года. Для оплаты нужна карта зарубежного банка — виртуальная карта EraPay подходит для покупок, отелей и снятия наличных.`,
+      a: `Карты Visa и Mastercard, выпущенные в РФ, не работают в ${n} с 2022 года. Для оплаты нужна карта зарубежного банка — виртуальная карта Payqo подходит для покупок, отелей и снятия наличных.`,
     },
     {
       q: `Сколько наличных брать в ${n}?`,
@@ -137,7 +137,7 @@ function faqFor(page: GuidePage): { q: string; a: string }[] {
     },
     {
       q: `Можно ли снимать в банкоматах ${n}?`,
-      a: `Да, зарубежные карты из рейтинга EraPay работают в банкоматах ${n}. Снимайте крупными суммами, выбирайте списание в местной валюте (не в рублях) и уточняйте комиссию карты за снятие за рубежом.`,
+      a: `Да, зарубежные карты из рейтинга Payqo работают в банкоматах ${n}. Снимайте крупными суммами, выбирайте списание в местной валюте (не в рублях) и уточняйте комиссию карты за снятие за рубежом.`,
     },
   ];
 }
@@ -147,11 +147,11 @@ export const Route = createFileRoute("/guides/$slug")({
     const p = loaderData as { page?: GuidePage } | undefined;
     if (!p?.page) {
       return {
-        meta: [{ title: "Гайд не найден · EraPay" }, { name: "robots", content: "noindex" }],
+        meta: [{ title: "Гайд не найден · Payqo" }, { name: "robots", content: "noindex" }],
       };
     }
     const page = p.page;
-    const url = `https://erapay.ru/guides/${page.slug}`;
+    const url = `https://payqo.ru/guides/${page.slug}`;
     const steps = stepsFor(page);
     const faq = faqFor(page);
     return {
@@ -173,8 +173,8 @@ export const Route = createFileRoute("/guides/$slug")({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Главная", item: "https://erapay.ru/" },
-              { "@type": "ListItem", position: 2, name: "Гайды", item: "https://erapay.ru/guides" },
+              { "@type": "ListItem", position: 1, name: "Главная", item: "https://payqo.ru/" },
+              { "@type": "ListItem", position: 2, name: "Гайды", item: "https://payqo.ru/guides" },
               { "@type": "ListItem", position: 3, name: page.h1, item: url },
             ],
           }),
@@ -224,7 +224,7 @@ export const Route = createFileRoute("/guides/$slug")({
       <SiteHeader />
       <div className="mx-auto max-w-2xl px-6 py-24 text-center">
         <h1 className="font-serif text-3xl font-bold text-primary">Гайд не найден</h1>
-        <p className="mt-3 text-muted-foreground">Такой инструкции пока нет в базе EraPay.</p>
+        <p className="mt-3 text-muted-foreground">Такой инструкции пока нет в базе Payqo.</p>
         <Link
           to="/"
           className="mt-6 inline-flex h-10 items-center rounded-md bg-primary px-4 text-sm font-semibold text-primary-foreground"
@@ -283,7 +283,7 @@ function GuidePageView() {
             </h1>
             <p className="mt-4 text-sm text-muted-foreground">
               {page.updated_at ? `Обновлено ${formatDate(page.updated_at)} · ` : ""}
-              Автор — Дмитрий Соколовский, редактор EraPay
+              Автор — Дмитрий Соколовский, редактор Payqo
             </p>
             <p className="mt-5 max-w-3xl text-base leading-relaxed text-muted-foreground sm:text-lg">
               {page.meta_description}
@@ -324,7 +324,7 @@ function GuidePageView() {
                 Рекомендуем карту
               </h2>
               <p className="mt-1 text-sm text-muted-foreground">
-                Две карты из топа рейтинга EraPay — подойдут для{" "}
+                Две карты из топа рейтинга Payqo — подойдут для{" "}
                 {page.guide_type === "service"
                   ? `оплаты ${page.target_name}`
                   : `поездки в ${page.target_name}`}.

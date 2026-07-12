@@ -8,7 +8,7 @@ import { Loader2 } from "lucide-react";
 export const Route = createFileRoute("/admin/login")({
   head: () => ({
     meta: [
-      { title: "Вход в админку — EraPay" },
+      { title: "Вход в админку — Payqo" },
       { name: "robots", content: "noindex, nofollow" },
     ],
   }),
@@ -118,7 +118,7 @@ function AdminLoginPage() {
         </h1>
         <p className="mt-1 text-sm text-slate-500">
           {mode === "login"
-            ? "Только для администраторов EraPay."
+            ? "Только для администраторов Payqo."
             : "Создайте аккаунт для доступа к админке."}
         </p>
 

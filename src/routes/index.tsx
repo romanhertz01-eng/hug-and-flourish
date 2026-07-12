@@ -19,22 +19,22 @@ import { homeCountriesQueryOptions } from "@/components/nhcard/Countries";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "EraPay — независимый рейтинг зарубежных виртуальных карт 2026" },
+      { title: "Payqo — независимый рейтинг зарубежных виртуальных карт 2026" },
       {
         name: "description",
         content:
           "Сравнение 15 зарубежных виртуальных карт для россиян: тарифы, лимиты, способы пополнения. Проверено редакцией.",
       },
-      { property: "og:title", content: "EraPay — независимый рейтинг зарубежных виртуальных карт 2026" },
+      { property: "og:title", content: "Payqo — независимый рейтинг зарубежных виртуальных карт 2026" },
       {
         property: "og:description",
         content: "Сравнение 15 зарубежных виртуальных карт для россиян: тарифы, лимиты, способы пополнения. Проверено редакцией.",
       },
-      { property: "og:url", content: "https://erapay.ru/" },
+      { property: "og:url", content: "https://payqo.ru/" },
       { property: "og:type", content: "website" },
       { name: "robots", content: PUBLIC_ROBOTS },
     ],
-    links: [{ rel: "canonical", href: "https://erapay.ru/" }],
+    links: [{ rel: "canonical", href: "https://payqo.ru/" }],
     scripts: [
       {
         type: "application/ld+json",
