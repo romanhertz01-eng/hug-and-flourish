@@ -109,13 +109,19 @@ function PromoBanner() {
           </p>
         </div>
 
-        <div className="hidden shrink-0 md:block">
+        <div className="hidden shrink-0 items-center gap-6 md:flex">
           <PromoVisual />
+          <a
+            href="#rating"
+            className="btn-pill inline-flex h-10 shrink-0 items-center bg-foreground px-4 text-[14px] font-medium text-background transition-all hover:bg-foreground/90"
+          >
+            К рейтингу →
+          </a>
         </div>
 
         <a
           href="#rating"
-          className="btn-pill inline-flex h-9 shrink-0 items-center bg-foreground px-4 text-xs font-medium text-background transition-all hover:bg-foreground/90 sm:text-sm"
+          className="btn-pill inline-flex h-10 shrink-0 items-center bg-foreground px-4 text-[14px] font-medium text-background transition-all hover:bg-foreground/90 md:hidden"
         >
           К рейтингу →
         </a>
@@ -126,7 +132,7 @@ function PromoBanner() {
 
 function PromoVisual() {
   return (
-    <div className="relative flex items-center gap-2">
+    <div className="relative flex items-center gap-3">
       <div
         className="flex h-[60px] w-[100px] flex-col justify-between rounded-xl border border-white/15 p-2 shadow-[0_10px_30px_rgba(0,0,0,0.45)] backdrop-blur-xl"
         style={{
