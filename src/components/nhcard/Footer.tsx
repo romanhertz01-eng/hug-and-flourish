@@ -81,8 +81,8 @@ export function SiteFooter() {
         <div className="grid gap-10 lg:grid-cols-[1.5fr_repeat(4,1fr)]">
           <div>
             <Link to="/" className="font-serif text-2xl font-bold" aria-label="Payqo — на главную">
-              <span className="text-primary">Era</span>
-              <span className="text-accent">Pay</span>
+              <span className="text-primary">Pay</span>
+              <span className="text-accent">qo</span>
             </Link>
             <p className="mt-3 max-w-xs text-sm text-muted-foreground">
               Независимый мониторинг зарубежных виртуальных карт. Проверяем, сравниваем, помогаем выбрать.

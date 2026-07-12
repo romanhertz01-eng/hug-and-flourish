@@ -122,7 +122,7 @@ function SideToc({ items }: { items: TocItem[] }) {
     <>
       {/* Desktop sticky */}
       <aside className="hidden lg:block">
-        <nav className="glass sticky top-24 rounded-2xl border border-white/10 p-3">
+        <nav className="glass sticky top-[96px] rounded-[20px] border border-white/10 p-4">
           <div className="mb-2 px-3 pt-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
             На этой странице
           </div>
@@ -212,9 +212,9 @@ function Section({
   children: React.ReactNode;
 }) {
   return (
-    <section id={id} className="scroll-mt-28 py-12">
+    <section id={id} className="scroll-mt-[100px] pt-14 first:pt-0 sm:pt-16">
       <Eyebrow tone={eyebrowTone}>{eyebrow}</Eyebrow>
-      <h2 className="mt-2 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">{title}</h2>
+      <h2 className="mt-2 text-[28px] font-bold leading-[1.15] tracking-tight text-foreground sm:text-[34px]">{title}</h2>
       <div className="mt-6">{children}</div>
     </section>
   );
@@ -379,8 +379,8 @@ function CardPage() {
           }}
         />
 
-        <div className="mx-auto max-w-[1200px] px-4 pt-10 sm:px-6 lg:px-8">
-          <nav aria-label="Хлебные крошки" className="mb-6 flex flex-wrap items-center gap-1 text-xs text-muted-foreground">
+        <div className="mx-auto max-w-[1240px] px-4 pt-8 pb-20 sm:px-6 lg:px-8">
+          <nav aria-label="Хлебные крошки" className="mb-5 flex flex-wrap items-center gap-1 text-xs text-muted-foreground">
             <Link to="/" className="hover:text-foreground">Главная</Link>
             <ChevronRight className="h-3 w-3" aria-hidden />
             <Link to="/" hash="rating" className="hover:text-foreground">Рейтинг карт</Link>
@@ -388,138 +388,136 @@ function CardPage() {
             <span className="text-foreground">{card.name}</span>
           </nav>
 
-          {/* HERO glass panel */}
-          <section
-            id="about"
-            className="glass-strong scroll-mt-28 rounded-3xl border border-white/10 p-6 sm:p-10"
-          >
-            <div className="grid gap-8 lg:grid-cols-[1fr_300px]">
-              <div className="min-w-0">
-                <div className="flex items-start gap-5">
-                  <div className="glass flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-white/15 text-xl font-bold text-foreground">
-                    {initials(card.name)}
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <Eyebrow tone="gold">Место в рейтинге · #{card.rank}</Eyebrow>
-                    <h1 className="mt-2 text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-                      {card.name}
-                    </h1>
-                    <div className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted-foreground">
-                      {card.payment_system && <span>{card.payment_system}</span>}
-                      {card.bank && (<><span aria-hidden>·</span><span>{card.bank}</span></>)}
-                      {card.issuer_country && (<><span aria-hidden>·</span><span>{card.issuer_country}</span></>)}
-                    </div>
-                  </div>
-                </div>
-
-                {chips.length > 0 && (
-                  <div className="mt-6 flex flex-wrap gap-2">
-                    {chips.map((c) => (
-                      <Chip key={c.label} icon={c.icon} label={c.label} />
-                    ))}
-                  </div>
-                )}
-
-                <div className="mt-8 flex flex-wrap items-center gap-3">
-                  <a
-                    href={card.affiliate_url ?? "#"}
-                    target="_blank"
-                    rel="nofollow sponsored noopener"
-                    className="btn-pill inline-flex h-11 items-center bg-primary px-6 text-sm font-semibold text-primary-foreground shadow-[0_0_40px_-8px_rgba(60,120,170,0.7)] hover:brightness-110"
-                  >
-                    Перейти на сайт
-                  </a>
-                  <Link
-                    to="/"
-                    hash="rating"
-                    className="btn-pill glass inline-flex h-11 items-center border border-white/15 px-5 text-sm font-semibold text-foreground hover:border-white/30"
-                  >
-                    К рейтингу
-                  </Link>
-                  {card.last_checked ? (
-                    <span className="text-xs text-muted-foreground">
-                      Проверено {formatDate(card.last_checked)}
-                    </span>
-                  ) : null}
-                </div>
-              </div>
-
-              <aside className="glass rounded-2xl border border-white/10 p-6">
-                <div className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
-                  Редакционная оценка
-                </div>
-                <div className="mt-1 flex items-baseline gap-2">
-                  <span className="text-5xl font-bold text-foreground">
-                    {Number(card.editorial_score).toFixed(1)}
-                  </span>
-                  <span className="text-sm text-muted-foreground">/ 10</span>
-                </div>
-                <div className="mt-4 border-t border-white/10 pt-4">
-                  {reviewAgg.count > 0 ? (
-                    <>
-                      <div className="flex items-center gap-1.5">
-                        {[1, 2, 3, 4, 5].map((n) => (
-                          <Star
-                            key={n}
-                            className={
-                              n <= Math.round(reviewAgg.avg)
-                                ? "h-4 w-4 fill-accent text-accent"
-                                : "h-4 w-4 text-white/20"
-                            }
-                            aria-hidden
-                          />
-                        ))}
-                        <span className="ml-1 text-sm font-semibold text-foreground">
-                          {reviewAgg.avg.toFixed(1)}
-                        </span>
-                      </div>
-                      <div className="mt-1 text-xs text-muted-foreground">
-                        Средняя оценка · {reviewAgg.count} отзывов
-                      </div>
-                    </>
-                  ) : (
-                    <div className="text-xs text-muted-foreground">
-                      Пользовательских отзывов пока нет — станьте первым ниже.
-                    </div>
-                  )}
-                </div>
-                {card.verified && (
-                  <div className="glass mt-4 inline-flex items-center gap-1.5 rounded-full border border-accent/30 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-accent">
-                    <ShieldCheck className="h-3.5 w-3.5" /> Проверено
-                  </div>
-                )}
-              </aside>
-            </div>
-          </section>
-        </div>
-
-        {/* Content grid with sticky TOC */}
-        <div className="mx-auto mt-6 max-w-[1200px] px-4 pb-16 sm:px-6 lg:px-8">
-          <div className="grid gap-8 lg:grid-cols-[240px_minmax(0,1fr)]">
+          {/* SINGLE GRID: sidebar + all content (hero + sections) */}
+          <div className="grid gap-8 lg:grid-cols-[230px_minmax(0,1fr)]">
             <SideToc items={tocItems} />
 
             <div className="min-w-0">
+              {/* HERO */}
+              <section
+                id="about"
+                className="glass-strong scroll-mt-[100px] rounded-[28px] border border-white/10 p-6 sm:p-8"
+              >
+                <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_240px]">
+                  <div className="min-w-0">
+                    <div className="flex items-start gap-4">
+                      <div className="glass flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-white/15 text-lg font-bold text-foreground">
+                        {initials(card.name)}
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <Eyebrow tone="gold">Место в рейтинге · #{card.rank}</Eyebrow>
+                        <h1 className="mt-2 text-[38px] font-bold leading-[1.05] tracking-tight text-foreground sm:text-[48px]">
+                          {card.name}
+                        </h1>
+                        <div className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-[14px] text-muted-foreground">
+                          {card.payment_system && <span>{card.payment_system}</span>}
+                          {card.bank && (<><span aria-hidden>·</span><span>{card.bank}</span></>)}
+                          {card.issuer_country && (<><span aria-hidden>·</span><span>{card.issuer_country}</span></>)}
+                        </div>
+                      </div>
+                    </div>
+
+                    {chips.length > 0 && (
+                      <div className="mt-5 flex flex-wrap gap-2">
+                        {chips.map((c) => (
+                          <Chip key={c.label} icon={c.icon} label={c.label} />
+                        ))}
+                      </div>
+                    )}
+
+                    <div className="mt-6 flex flex-wrap items-center gap-2.5">
+                      <a
+                        href={card.affiliate_url ?? "#"}
+                        target="_blank"
+                        rel="nofollow sponsored noopener"
+                        className="btn-pill inline-flex h-[46px] items-center bg-primary px-6 text-sm font-semibold text-primary-foreground shadow-[0_0_40px_-8px_rgba(60,120,170,0.7)] hover:brightness-110"
+                      >
+                        Перейти на сайт
+                      </a>
+                      <Link
+                        to="/"
+                        hash="rating"
+                        className="btn-pill glass inline-flex h-[46px] items-center border border-white/15 px-5 text-sm font-semibold text-foreground hover:border-white/30"
+                      >
+                        К рейтингу
+                      </Link>
+                      {card.last_checked ? (
+                        <span className="text-xs text-muted-foreground">
+                          Проверено {formatDate(card.last_checked)}
+                        </span>
+                      ) : null}
+                    </div>
+                  </div>
+
+                  <aside className="glass rounded-2xl border border-white/10 p-5">
+                    <div className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                      Оценка Payqo
+                    </div>
+                    <div className="mt-1 flex items-baseline gap-1.5">
+                      <span className="text-[44px] font-bold leading-none text-foreground">
+                        {Number(card.editorial_score).toFixed(1)}
+                      </span>
+                      <span className="text-sm text-muted-foreground">/ 10</span>
+                    </div>
+                    <div className="mt-3 border-t border-white/10 pt-3">
+                      {reviewAgg.count > 0 ? (
+                        <>
+                          <div className="flex items-center gap-1.5">
+                            {[1, 2, 3, 4, 5].map((n) => (
+                              <Star
+                                key={n}
+                                className={
+                                  n <= Math.round(reviewAgg.avg)
+                                    ? "h-4 w-4 fill-accent text-accent"
+                                    : "h-4 w-4 text-white/20"
+                                }
+                                aria-hidden
+                              />
+                            ))}
+                            <span className="ml-1 text-sm font-semibold text-foreground">
+                              {reviewAgg.avg.toFixed(1)}
+                            </span>
+                          </div>
+                          <div className="mt-1 text-[11px] text-muted-foreground">
+                            Пользователи · {reviewAgg.count}
+                          </div>
+                        </>
+                      ) : (
+                        <div className="text-[11px] text-muted-foreground">
+                          Пользовательских отзывов пока нет.
+                        </div>
+                      )}
+                    </div>
+                    {card.verified && (
+                      <div className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-accent/30 bg-accent/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-accent">
+                        <ShieldCheck className="h-3 w-3" /> Проверено
+                      </div>
+                    )}
+                  </aside>
+                </div>
+              </section>
+
               {/* PRICING TILES */}
               <Section id="pricing" eyebrow="Стоимость" eyebrowTone="gold" title={`Тарифы ${card.name}`}>
                 <div className="grid gap-4 md:grid-cols-3">
                   {priceTiles.map((t) => (
                     <div
                       key={t.title}
-                      className="glass flex h-full flex-col rounded-2xl border border-white/10 p-6"
+                      className="glass flex min-h-[280px] flex-col rounded-[24px] border border-white/10 p-6"
                     >
                       <div className="glass flex h-11 w-11 items-center justify-center rounded-xl border border-white/10">
                         <t.icon className="h-5 w-5 text-accent" aria-hidden />
                       </div>
-                      <div className="mt-4 text-lg font-semibold text-foreground">{t.title}</div>
+                      <div className="mt-4 text-[17px] font-semibold text-foreground">{t.title}</div>
                       <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{t.desc}</p>
-                      <div className="mt-5 whitespace-nowrap text-3xl font-bold tabular-nums text-foreground">
+                      <div className="mt-auto pt-5 whitespace-nowrap text-[28px] font-bold tabular-nums text-foreground">
                         {t.price ? noWrapMoney(t.price) : "—"}
                       </div>
                       <a
                         href={card.affiliate_url ?? "#"}
                         target="_blank"
                         rel="nofollow sponsored noopener"
-                        className="btn-pill glass mt-6 inline-flex h-10 items-center justify-center border border-white/15 px-5 text-sm font-semibold text-foreground hover:border-primary/50 hover:bg-primary/15"
+                        className="btn-pill glass mt-4 inline-flex h-11 items-center justify-center border border-white/15 px-5 text-sm font-semibold text-foreground hover:border-primary/50 hover:bg-primary/15"
                       >
                         Выбрать
                       </a>
@@ -561,38 +559,25 @@ function CardPage() {
                 </div>
               </Section>
 
-              {/* HOW TO ISSUE — 3 steps + optional 4th */}
+              {/* HOW TO ISSUE — 4 equal steps */}
               <Section id="issue" eyebrow="Инструкция" title={`Как оформить ${card.name}`}>
-                <ol className="grid gap-4 md:grid-cols-3">
-                  {steps.slice(0, 3).map((s, i) => (
-                    <li key={s.t} className="glass rounded-2xl border border-white/10 p-6">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-full border border-primary/40 bg-primary/15 text-lg font-bold text-foreground">
+                <ol className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                  {steps.map((s, i) => (
+                    <li key={s.t} className="glass flex h-full flex-col rounded-[22px] border border-white/10 p-5">
+                      <div className="flex h-8 w-8 items-center justify-center rounded-full border border-primary/40 bg-primary/15 text-sm font-bold text-foreground">
                         {i + 1}
                       </div>
-                      <div className="mt-4 text-lg font-semibold text-foreground">{s.t}</div>
-                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.d}</p>
+                      <div className="mt-3 text-[15px] font-semibold text-foreground">{s.t}</div>
+                      <p className="mt-1.5 text-[13px] leading-relaxed text-muted-foreground">{s.d}</p>
                     </li>
                   ))}
                 </ol>
-                {steps[3] && (
-                  <div className="glass mt-4 rounded-2xl border border-white/10 p-6">
-                    <div className="flex items-start gap-4">
-                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-accent/40 bg-accent/15 text-lg font-bold text-foreground">
-                        4
-                      </div>
-                      <div>
-                        <div className="text-lg font-semibold text-foreground">{steps[3].t}</div>
-                        <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{steps[3].d}</p>
-                      </div>
-                    </div>
-                  </div>
-                )}
               </Section>
 
-              {/* HOW TO TOP UP */}
+              {/* HOW TO TOP UP — compact panel */}
               <Section id="topup" eyebrow="Пополнение" eyebrowTone="gold" title={`Как пополнить ${card.name}`}>
-                <div className="glass rounded-2xl border border-white/10 p-6 sm:p-8">
-                  <p className="text-base leading-relaxed text-foreground/90">
+                <div className="glass max-w-[780px] rounded-[20px] border border-white/10 p-6">
+                  <p className="text-[15px] leading-relaxed text-foreground/90">
                     {hasSbp
                       ? `Пополнение через СБП — самый быстрый способ: перевод занимает 1–5 минут. Рубли автоматически конвертируются${card.card_currency?.length ? ` в валюту карты (${card.card_currency.join("/")})` : ""}, поэтому проверяйте актуальный курс и оставляйте небольшой запас на комиссию сервиса при оплате. Комиссия пополнения${card.topup_fee ? ` — ${card.topup_fee}` : ""}.`
                       : `Пополните карту доступным способом (${(card.topup_methods ?? []).join(", ") || "смотрите на сайте эмитента"}). Средства конвертируются${card.card_currency?.length ? ` в валюту карты (${card.card_currency.join("/")})` : ""} — проверяйте курс и оставляйте небольшой запас на комиссию сервиса при оплате.`}
@@ -600,27 +585,29 @@ function CardPage() {
                 </div>
               </Section>
 
-              {/* SERVICES */}
+              {/* SERVICES — compact horizontal */}
               {servicesTotal > 0 && (
                 <Section id="services" eyebrow="Поддержка" title="Поддерживаемые сервисы">
-                  <div className="glass rounded-2xl border border-white/10 p-6">
-                    <div className="mb-4 flex flex-wrap items-baseline justify-between gap-3">
-                      <div className="text-sm text-muted-foreground">
-                        Всего {servicesTotal} сервисов
+                  <div className="glass flex flex-wrap items-center justify-between gap-4 rounded-[20px] border border-white/10 px-5 py-4">
+                    <div className="min-w-0">
+                      <div className="text-[15px] font-semibold text-foreground">
+                        {servicesTotal} сервисов
                       </div>
-                      <button
-                        type="button"
-                        onClick={() => setModalOpen(true)}
-                        className="text-sm font-semibold text-accent hover:underline"
-                      >
-                        Все {servicesTotal} сервисов →
-                      </button>
+                      <div className="mt-2">
+                        <ServicePreview
+                          slugs={serviceSlugs}
+                          total={servicesTotal}
+                          onOpen={() => setModalOpen(true)}
+                        />
+                      </div>
                     </div>
-                    <ServicePreview
-                      slugs={serviceSlugs}
-                      total={servicesTotal}
-                      onOpen={() => setModalOpen(true)}
-                    />
+                    <button
+                      type="button"
+                      onClick={() => setModalOpen(true)}
+                      className="shrink-0 text-sm font-semibold text-accent hover:underline"
+                    >
+                      Все {servicesTotal} сервисов →
+                    </button>
                   </div>
                   <ServicesModal
                     open={modalOpen}
@@ -631,14 +618,17 @@ function CardPage() {
                 </Section>
               )}
 
-              {/* REVIEWS */}
-              <section id="reviews" className="scroll-mt-28 py-12">
+              {/* REVIEWS — single header */}
+              <section id="reviews" className="scroll-mt-[100px] pt-14 sm:pt-16">
                 <div className="flex flex-wrap items-baseline justify-between gap-3">
                   <div>
                     <Eyebrow tone="gold">Мнение пользователей</Eyebrow>
-                    <h2 className="mt-2 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-                      Отзывы о карте
+                    <h2 className="mt-2 text-[28px] font-bold leading-[1.15] tracking-tight text-foreground sm:text-[34px]">
+                      Отзывы о {card.name}
                     </h2>
+                    <p className="mt-2 max-w-[760px] text-sm text-muted-foreground">
+                      Оценка пользователей отделена от редакционной оценки Payqo.
+                    </p>
                   </div>
                   <Link
                     to="/cards/$slug/reviews"
@@ -649,7 +639,7 @@ function CardPage() {
                   </Link>
                 </div>
                 <div className="mt-6">
-                  <ReviewsSection cardSlug={card.slug} cardName={card.name} />
+                  <ReviewsSection cardSlug={card.slug} cardName={card.name} hideHeader />
                 </div>
               </section>
 
@@ -662,7 +652,7 @@ function CardPage() {
                         <Link
                           to="/cards/$slug"
                           params={{ slug: r.slug }}
-                          className="glass block h-full rounded-2xl border border-white/10 p-5 transition-all hover:-translate-y-0.5 hover:border-primary/40"
+                          className="glass flex h-full flex-col rounded-[20px] border border-white/10 p-5 transition-all hover:-translate-y-0.5 hover:border-primary/40"
                         >
                           <div className="flex items-start justify-between gap-2">
                             <div className="glass flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 text-sm font-bold text-foreground">
@@ -672,12 +662,12 @@ function CardPage() {
                               {Number(r.editorial_score).toFixed(1)}
                             </div>
                           </div>
-                          <div className="mt-3 text-lg font-semibold text-foreground">{r.name}</div>
+                          <div className="mt-3 text-[15px] font-semibold text-foreground">{r.name}</div>
                           <div className="mt-1 text-xs text-muted-foreground">
                             {r.payment_system}
                             {r.issuer_country ? ` · ${r.issuer_country}` : ""}
                           </div>
-                          <div className="mt-3 text-xs font-semibold text-accent">Подробнее →</div>
+                          <div className="mt-auto pt-3 text-xs font-semibold text-accent">Подробнее →</div>
                         </Link>
                       </li>
                     ))}
@@ -685,7 +675,7 @@ function CardPage() {
                 </Section>
               )}
 
-              <div className="mt-8 border-t border-white/10 pt-6">
+              <div className="mt-12 border-t border-white/10 pt-6">
                 <p className="flex items-center gap-2 text-xs text-muted-foreground">
                   <ArrowLeft className="h-3.5 w-3.5" />
                   <Link to="/" className="hover:text-foreground">Вернуться к рейтингу</Link>
