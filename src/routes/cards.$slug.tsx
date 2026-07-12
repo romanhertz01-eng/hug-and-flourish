@@ -20,7 +20,8 @@ import { SiteHeader } from "@/components/nhcard/Header";
 import { SiteFooter } from "@/components/nhcard/Footer";
 import { ReviewsSection } from "@/components/nhcard/Reviews";
 import { ServicesModal, ServicePreview } from "@/components/nhcard/ServicesModal";
-import { cardBySlugQueryOptions, cardsQueryOptions, formatDate, initials } from "@/lib/cards";
+import { cardBySlugQueryOptions, cardsQueryOptions, formatDate } from "@/lib/cards";
+import { CardLogo } from "@/components/nhcard/CardLogo";
 import { supabase } from "@/integrations/supabase/client";
 import type { Database } from "@/integrations/supabase/types";
 import { getCardServiceSlugs } from "@/lib/services";
@@ -401,9 +402,7 @@ function CardPage() {
                 <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_240px]">
                   <div className="min-w-0">
                     <div className="flex items-start gap-4">
-                      <div className="glass flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-white/15 text-lg font-bold text-foreground">
-                        {initials(card.name)}
-                      </div>
+                      <CardLogo name={card.name} logoUrl={card.logo_url} logoDomain={card.logo_domain} size={56} rounded="rounded-2xl" />
                       <div className="min-w-0 flex-1">
                         <Eyebrow tone="gold">Место в рейтинге · #{card.rank}</Eyebrow>
                         <h1 className="mt-2 text-[38px] font-bold leading-[1.05] tracking-tight text-foreground sm:text-[48px]">
@@ -655,9 +654,7 @@ function CardPage() {
                           className="glass flex h-full flex-col rounded-[20px] border border-white/10 p-5 transition-all hover:-translate-y-0.5 hover:border-primary/40"
                         >
                           <div className="flex items-start justify-between gap-2">
-                            <div className="glass flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 text-sm font-bold text-foreground">
-                              {initials(r.name)}
-                            </div>
+                            <CardLogo name={r.name} logoUrl={r.logo_url} logoDomain={r.logo_domain} size={40} />
                             <div className="text-lg font-bold text-foreground">
                               {Number(r.editorial_score).toFixed(1)}
                             </div>
