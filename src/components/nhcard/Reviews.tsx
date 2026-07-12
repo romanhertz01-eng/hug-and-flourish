@@ -46,7 +46,7 @@ function Stars({ value, size = 14 }: { value: number; size?: number }) {
   );
 }
 
-export function ReviewsSection({ cardSlug, cardName }: { cardSlug: string; cardName: string }) {
+export function ReviewsSection({ cardSlug, cardName, hideHeader = false }: { cardSlug: string; cardName: string; hideHeader?: boolean }) {
   const qc = useQueryClient();
   const { data: reviews = [], isLoading } = useQuery(reviewsQueryOptions(cardSlug));
 
