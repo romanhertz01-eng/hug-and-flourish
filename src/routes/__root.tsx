@@ -12,9 +12,8 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { PUBLIC_ROBOTS } from "@/lib/config";
-import ogDefault from "@/assets/og-default.jpg.asset.json";
 
-const OG_IMAGE_URL = `https://salute-and-grow-bot.lovable.app${ogDefault.url}`;
+const OG_IMAGE_URL = "https://payqo.ru/og-payqo.png";
 
 function NotFoundComponent() {
   return (
@@ -95,16 +94,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Сравнение 15 зарубежных виртуальных карт для россиян: тарифы, лимиты, способы пополнения. Проверено редакцией.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Payqo" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Payqo — независимый рейтинг зарубежных виртуальных карт 2026" },
       { name: "twitter:description", content: "Сравнение 15 зарубежных виртуальных карт для россиян: тарифы, лимиты, способы пополнения. Проверено редакцией." },
       { property: "og:image", content: OG_IMAGE_URL },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
-      { property: "og:image:type", content: "image/jpeg" },
+      { property: "og:image:type", content: "image/png" },
       { name: "twitter:image", content: OG_IMAGE_URL },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/5952870d-0dbb-4374-a9e8-664fb21e4535/id-preview-d05eba55--9fec5398-6ea4-492d-a4d3-15ebf071def6.lovable.app-1783846866810.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/5952870d-0dbb-4374-a9e8-664fb21e4535/id-preview-d05eba55--9fec5398-6ea4-492d-a4d3-15ebf071def6.lovable.app-1783846866810.png" },
     ],
     links: [
       {
@@ -112,8 +110,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: appCss,
       },
       { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
-      { rel: "icon", href: "/favicon.svg", sizes: "any" },
-      { rel: "apple-touch-icon", href: "/apple-touch-icon.png", sizes: "180x180" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
