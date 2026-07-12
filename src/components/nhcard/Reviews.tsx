@@ -159,93 +159,103 @@ export function ReviewsSection({ cardSlug, cardName, hideHeader = false }: { car
 
       <form
         onSubmit={onSubmit}
-        className="glass mt-10 rounded-2xl border border-white/10 p-6"
+        className="glass mt-10 grid gap-6 rounded-2xl border border-white/10 p-6 md:grid-cols-[280px_minmax(0,1fr)] md:gap-8"
         aria-labelledby="review-form-title"
       >
-        <h3 id="review-form-title" className="text-lg font-bold text-foreground">
-          Оставить отзыв о {cardName}
-        </h3>
-        <p className="mt-1 text-xs text-muted-foreground">
-          Отзыв уйдёт на модерацию и появится после проверки.
-        </p>
+        <div>
+          <span className="glass inline-flex items-center rounded-full border border-accent/30 bg-accent/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-accent">
+            Отзыв о виртуальной карте
+          </span>
+          <h3 id="review-form-title" className="mt-3 text-xl font-bold leading-snug text-foreground">
+            Расскажите, как {cardName} показала себя в деле
+          </h3>
+          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+            Полезно указать, какие сервисы оплачивали, скорость выпуска, реальные комиссии и проблемы. Отзыв уйдёт на модерацию.
+          </p>
+        </div>
 
-        {submitted && (
-          <div
-            role="status"
-            className="mt-4 rounded-xl border border-accent/30 bg-accent/10 px-4 py-3 text-sm text-foreground"
-          >
-            Спасибо, отзыв отправлен на проверку.
-          </div>
-        )}
-        {errorMsg && (
-          <div
-            role="alert"
-            className="mt-4 rounded-xl border border-destructive/40 bg-destructive/10 px-4 py-3 text-sm text-destructive-foreground"
-          >
-            {errorMsg}
-          </div>
-        )}
-
-        <div className="mt-5 grid gap-4 sm:grid-cols-2">
-          <div>
-            <label htmlFor="review-name" className="text-xs font-semibold text-muted-foreground">
-              Имя
-            </label>
-            <input
-              id="review-name"
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              maxLength={80}
-              required
-              autoComplete="name"
-              className="mt-1.5 h-11 w-full rounded-xl border border-white/10 bg-white/[0.04] px-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary/60 focus:bg-white/[0.06] focus:outline-none focus:ring-2 focus:ring-primary/30"
-            />
-          </div>
-          <div>
-            <label htmlFor="review-rating" className="text-xs font-semibold text-muted-foreground">
-              Оценка
-            </label>
-            <select
-              id="review-rating"
-              value={rating}
-              onChange={(e) => setRating(Number(e.target.value))}
-              className="mt-1.5 h-11 w-full rounded-xl border border-white/10 bg-white/[0.04] px-3 text-sm text-foreground focus:border-primary/60 focus:outline-none focus:ring-2 focus:ring-primary/30"
+        <div>
+          {submitted && (
+            <div
+              role="status"
+              className="mb-4 rounded-xl border border-accent/30 bg-accent/10 px-4 py-3 text-sm text-foreground"
             >
-              <option value={5}>★★★★★ — отлично</option>
-              <option value={4}>★★★★☆ — хорошо</option>
-              <option value={3}>★★★☆☆ — нормально</option>
-              <option value={2}>★★☆☆☆ — плохо</option>
-              <option value={1}>★☆☆☆☆ — ужасно</option>
-            </select>
+              Спасибо, отзыв отправлен на проверку.
+            </div>
+          )}
+          {errorMsg && (
+            <div
+              role="alert"
+              className="mb-4 rounded-xl border border-destructive/40 bg-destructive/10 px-4 py-3 text-sm text-destructive-foreground"
+            >
+              {errorMsg}
+            </div>
+          )}
+
+          <div className="grid gap-3.5 sm:grid-cols-2">
+            <div>
+              <label htmlFor="review-name" className="text-xs font-semibold text-muted-foreground">
+                Имя
+              </label>
+              <input
+                id="review-name"
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                maxLength={80}
+                required
+                autoComplete="name"
+                className="mt-1.5 h-12 w-full rounded-[14px] border border-white/10 bg-white/[0.04] px-3.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary/60 focus:bg-white/[0.06] focus:outline-none focus:ring-2 focus:ring-primary/30"
+              />
+            </div>
+            <div>
+              <label htmlFor="review-rating" className="text-xs font-semibold text-muted-foreground">
+                Оценка
+              </label>
+              <select
+                id="review-rating"
+                value={rating}
+                onChange={(e) => setRating(Number(e.target.value))}
+                className="mt-1.5 h-12 w-full rounded-[14px] border border-white/10 bg-white/[0.04] px-3.5 text-sm text-foreground focus:border-primary/60 focus:outline-none focus:ring-2 focus:ring-primary/30"
+              >
+                <option value={5}>★★★★★ — отлично</option>
+                <option value={4}>★★★★☆ — хорошо</option>
+                <option value={3}>★★★☆☆ — нормально</option>
+                <option value={2}>★★☆☆☆ — плохо</option>
+                <option value={1}>★☆☆☆☆ — ужасно</option>
+              </select>
+            </div>
           </div>
-        </div>
 
-        <div className="mt-4">
-          <label htmlFor="review-text" className="text-xs font-semibold text-muted-foreground">
-            Отзыв
-          </label>
-          <textarea
-            id="review-text"
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-            maxLength={2000}
-            required
-            rows={5}
-            placeholder="Что понравилось, что нет — конкретные сервисы, скорость выпуска, комиссии."
-            className="mt-1.5 w-full rounded-xl border border-white/10 bg-white/[0.04] px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary/60 focus:outline-none focus:ring-2 focus:ring-primary/30"
-          />
-          <div className="mt-1 text-right text-[11px] text-muted-foreground">{text.length}/2000</div>
-        </div>
+          <div className="mt-3.5">
+            <label htmlFor="review-text" className="text-xs font-semibold text-muted-foreground">
+              Отзыв
+            </label>
+            <textarea
+              id="review-text"
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+              maxLength={2000}
+              required
+              rows={5}
+              placeholder="Что понравилось, что нет — конкретные сервисы, скорость выпуска, комиссии."
+              className="mt-1.5 min-h-[140px] w-full rounded-[14px] border border-white/10 bg-white/[0.04] px-3.5 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary/60 focus:outline-none focus:ring-2 focus:ring-primary/30"
+            />
+            <div className="mt-1 flex items-center justify-between text-[11px] text-muted-foreground">
+              <span>Минимум 10 символов</span>
+              <span>{text.length}/2000</span>
+            </div>
+          </div>
 
-        <div className="mt-5">
-          <button
-            type="submit"
-            disabled={submit.isPending}
-            className="btn-pill inline-flex h-11 items-center bg-primary px-6 text-sm font-semibold text-primary-foreground shadow-[0_0_40px_-8px_rgba(60,120,170,0.7)] transition-colors hover:brightness-110 disabled:opacity-60"
-          >
-            {submit.isPending ? "Отправляем…" : "Отправить отзыв"}
-          </button>
+          <div className="mt-4 flex justify-end">
+            <button
+              type="submit"
+              disabled={submit.isPending}
+              className="btn-pill inline-flex h-[46px] items-center bg-primary px-6 text-sm font-semibold text-primary-foreground shadow-[0_0_40px_-8px_rgba(60,120,170,0.7)] transition-colors hover:brightness-110 disabled:opacity-60"
+            >
+              {submit.isPending ? "Отправляем…" : "Отправить отзыв"}
+            </button>
+          </div>
         </div>
       </form>
     </section>
