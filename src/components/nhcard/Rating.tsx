@@ -321,7 +321,7 @@ function TableRow({ card, first }: { card: Card; first: boolean }) {
         />
       </td>
       <td className="px-2.5 py-5 align-top">
-        <ScoreBadge score={Number(card.editorial_score)} reviews={card.reviews_count} />
+        <ScoreBadge score={Number(card.editorial_score)} reviews={card.reviews_count ?? 0} />
       </td>
       <td className="sticky right-0 bg-[oklch(0.14_0.02_240)] py-5 pl-3 pr-5 align-top group-hover:bg-[oklch(0.17_0.02_240)]">
         <div className="flex items-center justify-end gap-2">
