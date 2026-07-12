@@ -6,6 +6,7 @@ import { initials } from "@/lib/cards";
 import { noWrapMoney } from "@/lib/format";
 import { getCardServiceSlugs, getTableServiceSlugs } from "@/lib/services";
 import { ServicePreview, ServicesModal } from "./ServicesModal";
+import { CardLogo } from "./CardLogo";
 
 type SortKey = "rank" | "price" | "speed";
 
