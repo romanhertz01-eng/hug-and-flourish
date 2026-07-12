@@ -243,21 +243,28 @@ function TableRow({ card, first }: { card: Card; first: boolean }) {
     [card.slug, serviceSlugs],
   );
   return (
-    <tr className="group relative border-b border-border last:border-b-0 transition-colors hover:bg-surface/60">
+    <tr className="group relative border-b border-white/8 last:border-b-0 transition-colors hover:bg-white/[0.03]">
 
-      <td className="relative py-4 pl-4 align-top">
-        {first && <span className="absolute left-0 top-0 h-full w-1 bg-accent" aria-hidden />}
+      <td className="relative py-5 pl-5 align-top">
+        {first && (
+          <span
+            className="absolute left-0 top-2 bottom-2 w-[3px] rounded-r-full bg-accent shadow-[0_0_16px_rgba(194,166,51,0.6)]"
+            aria-hidden
+          />
+        )}
         <div
-          className={`inline-flex h-8 w-8 items-center justify-center rounded-md font-serif text-sm font-bold ${
-            first ? "bg-primary text-primary-foreground" : "bg-surface text-primary"
+          className={`inline-flex h-9 w-9 items-center justify-center rounded-xl font-sans text-sm font-medium ${
+            first
+              ? "bg-gradient-to-br from-accent to-[oklch(0.6_0.13_85)] text-accent-foreground shadow-[0_0_18px_rgba(194,166,51,0.4)]"
+              : "border border-white/10 bg-white/[0.04] text-foreground"
           }`}
         >
           {card.rank}
         </div>
       </td>
-      <td className="py-4 pr-4 align-top">
+      <td className="py-5 pr-4 align-top">
         <div className="flex items-start gap-3">
-          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-border bg-surface font-serif text-sm font-bold text-primary">
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.05] font-sans text-sm font-medium text-foreground">
             {initials(card.name)}
           </div>
           <div className="min-w-0">
@@ -265,7 +272,7 @@ function TableRow({ card, first }: { card: Card; first: boolean }) {
               <Link
                 to="/cards/$slug"
                 params={{ slug: card.slug }}
-                className="font-semibold text-primary hover:underline"
+                className="text-base font-medium text-foreground hover:text-accent"
               >
                 {card.name}
               </Link>
@@ -289,40 +296,39 @@ function TableRow({ card, first }: { card: Card; first: boolean }) {
           </div>
         </div>
       </td>
-      <td className="whitespace-nowrap px-2.5 py-4 align-top text-foreground tabular-nums">{noWrapMoney(card.issue_cost)}</td>
-      <td className="whitespace-nowrap px-2.5 py-4 align-top text-foreground tabular-nums">{noWrapMoney(card.service_cost)}</td>
-      <td className="whitespace-nowrap px-2.5 py-4 align-top text-foreground tabular-nums">{noWrapMoney(card.topup_fee)}</td>
-      <td className="whitespace-nowrap px-2.5 py-4 align-top tabular-nums">
+      <td className="whitespace-nowrap px-2.5 py-5 align-top text-foreground tabular-nums">{noWrapMoney(card.issue_cost)}</td>
+      <td className="whitespace-nowrap px-2.5 py-5 align-top text-foreground tabular-nums">{noWrapMoney(card.service_cost)}</td>
+      <td className="whitespace-nowrap px-2.5 py-5 align-top text-foreground tabular-nums">{noWrapMoney(card.topup_fee)}</td>
+      <td className="whitespace-nowrap px-2.5 py-5 align-top tabular-nums">
         {card.monthly_limit ? (
           <span className="text-foreground">{noWrapMoney(card.monthly_limit)}</span>
         ) : (
           <span className="text-muted-foreground/70">нет данных</span>
         )}
       </td>
-      <td className="whitespace-nowrap px-2.5 py-4 align-top tabular-nums">
+      <td className="whitespace-nowrap px-2.5 py-5 align-top tabular-nums">
         {card.issue_speed ? (
           <span className="text-foreground">{noWrapMoney(card.issue_speed)}</span>
         ) : (
           <span className="text-muted-foreground/70">нет данных</span>
         )}
       </td>
-      <td className="hidden px-2.5 py-4 align-top 2xl:table-cell">
+      <td className="hidden px-2.5 py-5 align-top 2xl:table-cell">
         <ServicePreview
           slugs={tableSlugs}
           total={serviceSlugs.length}
           onOpen={() => setModalOpen(true)}
         />
       </td>
-      <td className="px-2.5 py-4 align-top">
-        <div className="font-serif text-lg font-bold text-primary">{Number(card.editorial_score).toFixed(1)}</div>
-        <div className="text-[11px] text-muted-foreground">{card.reviews_count} отзывов</div>
+      <td className="px-2.5 py-5 align-top">
+        <ScoreBadge score={Number(card.editorial_score)} reviews={card.reviews_count} />
       </td>
-      <td className="sticky right-0 bg-background py-4 pl-3 pr-4 align-top shadow-[-8px_0_8px_-8px_rgba(0,0,0,0.06)] group-hover:bg-surface/60">
+      <td className="sticky right-0 bg-[oklch(0.14_0.02_240)] py-5 pl-3 pr-5 align-top group-hover:bg-[oklch(0.17_0.02_240)]">
         <div className="flex items-center justify-end gap-2">
           <Link
             to="/cards/$slug"
             params={{ slug: card.slug }}
-            className="inline-flex h-9 items-center rounded-md border border-border bg-background px-3 text-xs font-semibold text-primary transition-colors hover:border-primary/40"
+            className="btn-pill inline-flex h-9 items-center border border-white/15 bg-white/[0.04] px-4 text-xs font-medium text-foreground backdrop-blur-md transition-all hover:border-white/30 hover:bg-white/[0.08]"
           >
             Обзор
           </Link>
@@ -330,10 +336,10 @@ function TableRow({ card, first }: { card: Card; first: boolean }) {
             href={card.affiliate_url ?? "#"}
             target="_blank"
             rel="nofollow sponsored noopener"
-            className={`inline-flex h-9 items-center gap-1 rounded-md px-3 text-xs font-semibold shadow-sm transition-colors ${
+            className={`btn-pill inline-flex h-9 items-center gap-1 px-4 text-xs font-medium transition-all ${
               first
-                ? "bg-accent text-accent-foreground hover:bg-accent/90"
-                : "border border-border bg-background text-primary hover:border-primary/40"
+                ? "bg-gradient-to-r from-accent to-[oklch(0.6_0.13_85)] text-accent-foreground shadow-[0_0_20px_rgba(194,166,51,0.45)] hover:shadow-[0_0_30px_rgba(194,166,51,0.65)]"
+                : "bg-primary text-primary-foreground shadow-[0_0_18px_rgba(60,120,170,0.35)] hover:bg-primary/90 hover:shadow-[0_0_28px_rgba(60,120,170,0.55)]"
             }`}
           >
             Оформить
@@ -348,6 +354,29 @@ function TableRow({ card, first }: { card: Card; first: boolean }) {
         slugs={serviceSlugs}
       />
     </tr>
+  );
+}
+
+function ScoreBadge({ score, reviews }: { score: number; reviews: number }) {
+  const has = score > 0;
+  const label = score >= 4.5 ? "Отлично" : score >= 4 ? "Хорошо" : score >= 3 ? "Средне" : "Низко";
+  if (!has) {
+    return (
+      <div className="inline-flex flex-col items-start gap-0.5">
+        <span className="btn-pill inline-flex items-center border border-destructive/40 bg-destructive/10 px-2.5 py-1 text-xs font-medium text-destructive backdrop-blur-md">
+          нет оценок
+        </span>
+      </div>
+    );
+  }
+  return (
+    <div className="flex flex-col gap-1">
+      <span className="btn-pill inline-flex w-fit items-center gap-1.5 border border-primary/40 bg-primary/15 px-2.5 py-1 text-xs font-medium text-foreground backdrop-blur-md">
+        <span className="font-sans text-sm font-medium tabular-nums text-accent">{score.toFixed(1)}</span>
+        <span className="text-[10px] uppercase tracking-wider text-muted-foreground">{label}</span>
+      </span>
+      <div className="text-[11px] text-muted-foreground">{reviews} отзывов</div>
+    </div>
   );
 }
 
