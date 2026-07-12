@@ -245,7 +245,7 @@ function TableRow({ card, first }: { card: Card; first: boolean }) {
   return (
     <tr className="group relative border-b border-white/8 last:border-b-0 transition-colors hover:bg-white/[0.03]">
 
-      <td className="relative py-5 pl-5 align-top">
+      <td className="relative py-4 pl-5 align-top">
         {first && (
           <span
             className="absolute left-0 top-2 bottom-2 w-[3px] rounded-r-full bg-accent shadow-[0_0_16px_rgba(194,166,51,0.6)]"
@@ -262,7 +262,7 @@ function TableRow({ card, first }: { card: Card; first: boolean }) {
           {card.rank}
         </div>
       </td>
-      <td className="py-5 pr-4 align-top">
+      <td className="py-4 pr-4 align-top">
         <div className="flex items-start gap-3">
           <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.05] font-sans text-sm font-medium text-foreground">
             {initials(card.name)}
@@ -296,34 +296,34 @@ function TableRow({ card, first }: { card: Card; first: boolean }) {
           </div>
         </div>
       </td>
-      <td className="whitespace-nowrap px-2.5 py-5 align-top text-foreground tabular-nums">{noWrapMoney(card.issue_cost)}</td>
-      <td className="whitespace-nowrap px-2.5 py-5 align-top text-foreground tabular-nums">{noWrapMoney(card.service_cost)}</td>
-      <td className="whitespace-nowrap px-2.5 py-5 align-top text-foreground tabular-nums">{noWrapMoney(card.topup_fee)}</td>
-      <td className="whitespace-nowrap px-2.5 py-5 align-top tabular-nums">
+      <td className="whitespace-nowrap px-2.5 py-4 align-top text-foreground tabular-nums">{noWrapMoney(card.issue_cost)}</td>
+      <td className="whitespace-nowrap px-2.5 py-4 align-top text-foreground tabular-nums">{noWrapMoney(card.service_cost)}</td>
+      <td className="whitespace-nowrap px-2.5 py-4 align-top text-foreground tabular-nums">{noWrapMoney(card.topup_fee)}</td>
+      <td className="whitespace-nowrap px-2.5 py-4 align-top tabular-nums">
         {card.monthly_limit ? (
           <span className="text-foreground">{noWrapMoney(card.monthly_limit)}</span>
         ) : (
           <span className="text-muted-foreground/70">нет данных</span>
         )}
       </td>
-      <td className="whitespace-nowrap px-2.5 py-5 align-top tabular-nums">
+      <td className="whitespace-nowrap px-2.5 py-4 align-top tabular-nums">
         {card.issue_speed ? (
           <span className="text-foreground">{noWrapMoney(card.issue_speed)}</span>
         ) : (
           <span className="text-muted-foreground/70">нет данных</span>
         )}
       </td>
-      <td className="hidden px-2.5 py-5 align-top 2xl:table-cell">
+      <td className="hidden px-2.5 py-4 align-top 2xl:table-cell">
         <ServicePreview
           slugs={tableSlugs}
           total={serviceSlugs.length}
           onOpen={() => setModalOpen(true)}
         />
       </td>
-      <td className="px-2.5 py-5 align-top">
+      <td className="px-2.5 py-4 align-top">
         <ScoreBadge score={Number(card.editorial_score)} reviews={card.reviews_count ?? 0} />
       </td>
-      <td className="sticky right-0 bg-[oklch(0.14_0.02_240)] py-5 pl-3 pr-5 align-top group-hover:bg-[oklch(0.17_0.02_240)]">
+      <td className="sticky right-0 bg-[oklch(0.14_0.02_240)] py-4 pl-3 pr-5 align-top group-hover:bg-[oklch(0.17_0.02_240)]">
         <div className="flex items-center justify-end gap-2">
           <Link
             to="/cards/$slug"
