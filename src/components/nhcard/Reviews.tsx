@@ -98,20 +98,24 @@ export function ReviewsSection({ cardSlug, cardName, hideHeader = false }: { car
 
   return (
     <section>
-      <div className="flex flex-wrap items-baseline justify-between gap-3">
-        <h2 className="text-2xl font-bold text-foreground">Отзывы</h2>
-        {count > 0 && (
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
-            <span className="text-2xl font-bold text-foreground">{avg.toFixed(1)}</span>
-            <Stars value={Math.round(avg)} />
-            <span>· {count} {pluralReviews(count)}</span>
+      {!hideHeader && (
+        <>
+          <div className="flex flex-wrap items-baseline justify-between gap-3">
+            <h2 className="text-2xl font-bold text-foreground">Отзывы</h2>
+            {count > 0 && (
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <span className="text-2xl font-bold text-foreground">{avg.toFixed(1)}</span>
+                <Stars value={Math.round(avg)} />
+                <span>· {count} {pluralReviews(count)}</span>
+              </div>
+            )}
           </div>
-        )}
-      </div>
+          <p className="mt-2 text-xs text-muted-foreground">
+            Оценка пользователей — отдельно от редакционного балла Payqo.
+          </p>
+        </>
+      )}
 
-      <p className="mt-2 text-xs text-muted-foreground">
-        Оценка пользователей — отдельно от редакционного балла Payqo.
-      </p>
 
       <div className="mt-6 grid gap-4 md:grid-cols-2">
         {isLoading && (
