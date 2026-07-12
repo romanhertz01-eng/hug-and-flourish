@@ -124,8 +124,16 @@ export function ReviewsSection({ cardSlug, cardName, hideHeader = false }: { car
           </div>
         )}
         {!isLoading && reviews.length === 0 && (
-          <div className="glass col-span-full rounded-2xl border border-dashed border-white/15 p-6 text-center text-sm text-muted-foreground">
-            Пока нет отзывов — оставьте первый.
+          <div className="glass col-span-full flex min-h-[96px] items-center justify-between gap-4 rounded-2xl border border-white/10 px-5 py-4 text-sm text-muted-foreground">
+            <div className="flex items-center gap-3">
+              <span className="glass inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-accent" aria-hidden>
+                <Star className="h-4 w-4" />
+              </span>
+              <span>Пока нет отзывов о {cardName}.</span>
+            </div>
+            <a href="#review-form-title" className="text-sm font-semibold text-accent hover:underline">
+              Оставить первый →
+            </a>
           </div>
         )}
         {reviews.map((r) => (
