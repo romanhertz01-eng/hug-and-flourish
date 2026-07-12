@@ -40,6 +40,8 @@ type CardRow = {
   kyc: boolean;
   service_cost_rub_year: number | null;
   topup_fee_percent: number | null;
+  logo_domain: string | null;
+  logo_url: string | null;
 };
 
 const EMPTY: Omit<CardRow, "id"> = {
@@ -62,6 +64,8 @@ const EMPTY: Omit<CardRow, "id"> = {
   kyc: false,
   service_cost_rub_year: null,
   topup_fee_percent: null,
+  logo_domain: "",
+  logo_url: "",
 };
 
 function CardsPanel() {
