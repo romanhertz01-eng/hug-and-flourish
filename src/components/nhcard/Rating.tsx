@@ -112,11 +112,11 @@ export function RatingSection({ cards, withControls = false }: { cards: Card[]; 
 
   return (
     <section ref={sectionRef} id="rating" className="scroll-mt-20 border-b border-white/5 bg-background">
-      <div className="mx-auto max-w-[1240px] px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
-        <div className="mb-6 flex flex-col gap-2">
-          <div className="text-xs font-semibold uppercase tracking-wider text-accent">Рейтинг · 2026</div>
-          <h2 className="font-sans text-3xl font-light tracking-tight text-foreground sm:text-4xl">
-            15 зарубежных виртуальных карт — от лучших к нишевым
+      <div className="mx-auto max-w-[1280px] px-6 pb-10 pt-8 sm:px-8 lg:pb-14 lg:pt-9">
+        <div className="mb-4 flex flex-col gap-1">
+          <div className="text-[11px] font-semibold uppercase tracking-wider text-accent">Рейтинг · 2026</div>
+          <h2 className="font-sans text-[26px] font-light leading-tight tracking-tight text-foreground sm:text-[32px]">
+            Рейтинг виртуальных карт — от лучших к нишевым
           </h2>
         </div>
 
