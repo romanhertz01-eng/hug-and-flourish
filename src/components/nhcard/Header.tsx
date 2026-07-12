@@ -28,8 +28,6 @@ const nav: NavItem[] = [
     kind: "group",
     items: [
       { label: "Все карты", kind: "hash", hash: "rating" },
-      { label: "По задаче", kind: "hash", hash: "task" },
-      { label: "По странам", kind: "hash", hash: "countries" },
       { label: "Зарубежные виртуальные карты", kind: "route", to: "/foreign-virtual-cards" },
       { label: "Карты для подписок", kind: "route", to: "/cards-for-subscriptions" },
       { label: "Карты для путешествий", kind: "route", to: "/travel-cards" },
@@ -42,7 +40,6 @@ const nav: NavItem[] = [
     ],
   },
   { label: "Подбор", kind: "route", to: "/podbor" },
-  { label: "Калькулятор", kind: "hash", hash: "calculator" },
   {
     label: "Ещё",
     kind: "group",
