@@ -392,20 +392,29 @@ function MobileCard({ card, first }: { card: Card; first: boolean }) {
   );
   return (
     <article
-      className={`relative overflow-hidden rounded-lg border bg-background p-4 shadow-sm ${
-        first ? "border-accent/40" : "border-border"
+      className={`relative overflow-hidden rounded-3xl border bg-white/[0.04] p-5 backdrop-blur-xl transition-all ${
+        first
+          ? "border-accent/40 shadow-[0_0_30px_rgba(194,166,51,0.2),0_20px_50px_rgba(0,0,0,0.5)]"
+          : "border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.4)]"
       }`}
     >
-      {first && <span className="absolute left-0 top-0 h-full w-1 bg-accent" aria-hidden />}
+      {first && (
+        <span
+          className="absolute left-0 top-3 bottom-3 w-[3px] rounded-r-full bg-accent shadow-[0_0_16px_rgba(194,166,51,0.6)]"
+          aria-hidden
+        />
+      )}
       <div className="flex items-start gap-3">
         <div
-          className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-md font-serif text-sm font-bold ${
-            first ? "bg-primary text-primary-foreground" : "bg-surface text-primary"
+          className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl font-sans text-sm font-medium ${
+            first
+              ? "bg-gradient-to-br from-accent to-[oklch(0.6_0.13_85)] text-accent-foreground shadow-[0_0_16px_rgba(194,166,51,0.4)]"
+              : "border border-white/10 bg-white/[0.05] text-foreground"
           }`}
         >
           {card.rank}
         </div>
-        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-border bg-surface font-serif text-sm font-bold text-primary">
+        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.05] font-sans text-sm font-medium text-foreground">
           {initials(card.name)}
         </div>
         <div className="min-w-0 flex-1">
@@ -413,7 +422,7 @@ function MobileCard({ card, first }: { card: Card; first: boolean }) {
             <Link
               to="/cards/$slug"
               params={{ slug: card.slug }}
-              className="truncate font-semibold text-primary hover:underline"
+              className="truncate text-base font-medium text-foreground hover:text-accent"
             >
               {card.name}
             </Link>
@@ -423,15 +432,10 @@ function MobileCard({ card, first }: { card: Card; first: boolean }) {
             {card.payment_system} · {card.issuer_country}
           </div>
         </div>
-        <div className="text-right">
-          <div className="font-serif text-lg font-bold text-primary">
-            {Number(card.editorial_score).toFixed(1)}
-          </div>
-          <div className="text-[10px] text-muted-foreground">{card.reviews_count}</div>
-        </div>
+        <ScoreBadge score={Number(card.editorial_score)} reviews={card.reviews_count ?? 0} />
       </div>
 
-      <dl className="mt-4 grid grid-cols-2 gap-x-4 gap-y-2 border-t border-border pt-3 text-xs">
+      <dl className="mt-4 grid grid-cols-2 gap-x-4 gap-y-2 border-t border-white/10 pt-4 text-xs">
         <Row label="Выпуск" value={noWrapMoney(card.issue_cost)} nowrap />
         <Row label="Обслуж." value={noWrapMoney(card.service_cost)} nowrap />
         <Row label="Пополнение" value={noWrapMoney(card.topup_fee)} nowrap />
@@ -440,7 +444,7 @@ function MobileCard({ card, first }: { card: Card; first: boolean }) {
         <Row label="BIN" value={card.bin_country} mono />
       </dl>
       {serviceSlugs.length > 0 && (
-        <div className="mt-3 border-t border-border pt-3">
+        <div className="mt-4 border-t border-white/10 pt-4">
           <ServicePreview
             slugs={tableSlugs}
             total={serviceSlugs.length}
@@ -449,11 +453,11 @@ function MobileCard({ card, first }: { card: Card; first: boolean }) {
         </div>
       )}
 
-      <div className="mt-4 flex gap-2">
+      <div className="mt-5 flex gap-2">
         <Link
           to="/cards/$slug"
           params={{ slug: card.slug }}
-          className="inline-flex h-9 flex-1 items-center justify-center rounded-md border border-border bg-background px-3 text-xs font-semibold text-primary"
+          className="btn-pill inline-flex h-10 flex-1 items-center justify-center border border-white/15 bg-white/[0.04] px-4 text-xs font-medium text-foreground backdrop-blur-md transition-all hover:border-white/30 hover:bg-white/[0.08]"
         >
           Обзор
         </Link>
@@ -461,7 +465,7 @@ function MobileCard({ card, first }: { card: Card; first: boolean }) {
           href={card.affiliate_url ?? "#"}
           target="_blank"
           rel="nofollow sponsored noopener"
-          className="inline-flex h-9 flex-1 items-center justify-center gap-1 rounded-md bg-accent px-3 text-xs font-semibold text-accent-foreground"
+          className="btn-pill inline-flex h-10 flex-1 items-center justify-center gap-1 bg-primary px-4 text-xs font-medium text-primary-foreground shadow-[0_0_18px_rgba(60,120,170,0.35)] transition-all hover:bg-primary/90 hover:shadow-[0_0_28px_rgba(60,120,170,0.55)]"
         >
           Оформить
           <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
