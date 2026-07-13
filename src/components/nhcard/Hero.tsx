@@ -53,8 +53,8 @@ export function Hero({ total }: { total: number }) {
             </h1>
 
             <p className="mt-5 max-w-[900px] text-[16px] leading-[1.6] text-muted-foreground">
-              Payqo — независимый мониторинг сервисов виртуальных карт для россиян.
-              В рейтинге — {total} проверенных карт с актуальными тарифами и способами пополнения.
+              Payqo помогает выбрать зарубежную виртуальную карту: в каталоге — {total} проверенных карт
+              с тарифами, лимитами и способами пополнения из России.
             </p>
 
             <div className="mt-6 flex flex-wrap gap-2.5">
