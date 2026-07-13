@@ -85,7 +85,7 @@ export function SiteFooter() {
               <span className="text-accent">qo</span>
             </Link>
             <p className="mt-3 max-w-xs text-sm text-muted-foreground">
-              Независимый мониторинг зарубежных виртуальных карт. Проверяем, сравниваем, помогаем выбрать.
+              Сравниваем зарубежные виртуальные карты по фактам: тарифы, лимиты, способы пополнения.
             </p>
           </div>
           {columns.map((col) => (

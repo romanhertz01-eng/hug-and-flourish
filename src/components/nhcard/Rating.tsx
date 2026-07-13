@@ -117,7 +117,7 @@ export function RatingSection({ cards, withControls = false }: { cards: Card[]; 
         <div className="mb-4 flex flex-col gap-1">
           <div className="text-[11px] font-semibold uppercase tracking-wider text-accent">Рейтинг · 2026</div>
           <h2 className="font-sans text-[26px] font-light leading-tight tracking-tight text-foreground sm:text-[32px]">
-            Рейтинг виртуальных карт — от лучших к нишевым
+            Все карты рейтинга — 2026
           </h2>
         </div>
 
